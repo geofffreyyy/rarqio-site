@@ -106,7 +106,7 @@ sources (score formula in `GameCore/AnswerMatcher.swift`, tier colours in
 `App/Features/Setup/SetupView.swift`).
 
 Numbers to re-check against the release build before publishing:
-3,960 questions per language, 24 themes, Movies 748 / Comics 61, the Cyrano
+4,105 questions per language, 24 themes, Movies 756 / Comics 64, the Cyrano
 example in `#rarity` (answers and rarities), the settings (1/3/5/7/9 rounds,
 10–60 s), iOS 17+, and the credits list.
 

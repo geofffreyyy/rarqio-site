@@ -29,8 +29,8 @@
 
   // ---------- Score calculator ----------
   // Same rule as the app (GameCore/AnswerMatcher.swift):
-  // 100 × 10^((rarity − 10) / 90) × (1 + 0.25 × time left / duration),
-  // rarity clamped to 0–100, rounded, capped at 1,250.
+  // 100 × 10^((rarity − 10) / 90) × (1 − 0.5 × time elapsed / duration),
+  // rarity clamped to 0–100, rounded, at most 1,000 (half the base at the deadline).
   var calc = (function () {
     var rarityInput = document.getElementById('calc-rarity');
     var timeInput = document.getElementById('calc-time');
@@ -50,10 +50,11 @@
       { min: -Infinity, cls: 't-classic', en: 'Classic', fr: 'Classique' }
     ];
 
-    function points(rarity, timeLeftShare) {
+    function points(rarity, elapsedShare) {
       var r = Math.min(100, Math.max(0, rarity));
+      var e = Math.min(1, Math.max(0, elapsedShare));
       var base = 100 * Math.pow(10, (r - 10) / 90);
-      return Math.min(1250, Math.round(base * (1 + 0.25 * timeLeftShare)));
+      return Math.min(1000, Math.round(base * (1 - 0.5 * e)));
     }
 
     function tierFor(rarity) {
@@ -84,7 +85,7 @@
       label.textContent = tier[lang];
       tierChip.appendChild(label);
 
-      // 1,250 in English, 1 250 (narrow no-break space) in French.
+      // 1,000 in English, 1 000 (narrow no-break space) in French.
       var formatted = String(pts);
       if (pts >= 1000) {
         var sep = lang === 'fr' ? ' ' : ',';

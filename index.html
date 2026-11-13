@@ -162,8 +162,8 @@
             <li>
               <span class="step-num" aria-hidden="true">3</span>
               <h3><span lang="en">Least obvious wins</span><span lang="fr">Le moins évident gagne</span></h3>
-              <p lang="en">Every accepted answer has a rarity. The rarer it is, the more it scores: up to ten times the most obvious one. Answering fast adds up to 25%.</p>
-              <p lang="fr">Chaque réponse acceptée a une rareté. Plus elle est rare, plus elle rapporte&nbsp;: jusqu’à dix fois la réponse la plus évidente. Répondre vite ajoute jusqu’à 25&#8239;%.</p>
+              <p lang="en">Every accepted answer has a rarity. The rarer it is, the more it scores: up to ten times the most obvious one. The later you answer, the fewer points: at the last second, half are left.</p>
+              <p lang="fr">Chaque réponse acceptée a une rareté. Plus elle est rare, plus elle rapporte&nbsp;: jusqu’à dix fois la réponse la plus évidente. Plus vous répondez tard, moins vous marquez&nbsp;: à la dernière seconde, il reste la moitié des points.</p>
             </li>
           </ol>
           <p class="after-steps" lang="en">Then everyone’s answers appear with their rarity and points. Online, the next round starts by itself after four seconds; in solo, you move on at your own pace.</p>
@@ -178,8 +178,8 @@
         <header class="section-head">
           <p class="eyebrow"><span lang="en">Rarity</span><span lang="fr">La rareté</span></p>
           <h2 id="rarity-title"><span lang="en">Five tiers, from Classic to Exceptional.</span><span lang="fr">Cinq paliers, de Classique à Singulière.</span></h2>
-          <p class="section-lede" lang="en">In each question, the answers are ranked on a scale from 0 to 100, from the most obvious to the most obscure. Rarity sets the base score; speed adds a bonus.</p>
-          <p class="section-lede" lang="fr">Dans chaque question, les réponses sont classées sur une échelle de 0 à 100, de la plus évidente à la plus pointue. La rareté fixe la base des points&nbsp;; la vitesse ajoute un bonus.</p>
+          <p class="section-lede" lang="en">In each question, the answers are ranked on a scale from 0 to 100, from the most obvious to the most obscure. Rarity sets the base score; answering late lowers it, never below half.</p>
+          <p class="section-lede" lang="fr">Dans chaque question, les réponses sont classées sur une échelle de 0 à 100, de la plus évidente à la plus pointue. La rareté fixe la base des points&nbsp;; répondre tard la réduit, jamais sous la moitié.</p>
         </header>
 
         <div class="section-body">
@@ -216,16 +216,16 @@
               <span class="tier-pts"><span lang="en">599–1,000 pts</span><span lang="fr">599–1&#8239;000&nbsp;pts</span></span>
             </li>
           </ol>
-          <p class="note-small" lang="en">Base points, before the speed bonus.</p>
-          <p class="note-small" lang="fr">Points de base, avant le bonus de vitesse.</p>
+          <p class="note-small" lang="en">Base points, for an answer given at once.</p>
+          <p class="note-small" lang="fr">Points de base, pour une réponse donnée tout de suite.</p>
 
           <div class="formula-block">
             <h3><span lang="en">The formula</span><span lang="fr">La formule</span></h3>
             <!-- Each <span> is kept on one line; the formula may only wrap between them. -->
-            <p class="formula" lang="en"><code><span>points =</span> <span>100 × 10<sup>(rarity − 10) / 90</sup></span> <span>× (1 + 0.25 ×</span> <span>time left / duration)</span></code></p>
-            <p class="formula" lang="fr"><code><span>points =</span> <span>100 × 10<sup>(rareté − 10) / 90</sup></span> <span>× (1 + 0,25 ×</span> <span>temps restant / durée)</span></code></p>
-            <p lang="en">Rounded, and capped at 1,250 points per answer. About 100 for the reflex answer; every +30 of rarity roughly doubles the base, up to 1,000 for the most obscure; speed adds at most 25%.</p>
-            <p lang="fr">Arrondi, et plafonné à 1&#8239;250 points par réponse. Environ 100 pour la réponse réflexe&nbsp;; chaque +30 de rareté double à peu près la base, jusqu’à 1&#8239;000 pour la plus pointue&nbsp;; la vitesse ajoute au plus 25&#8239;%.</p>
+            <p class="formula" lang="en"><code><span>points =</span> <span>100 × 10<sup>(rarity − 10) / 90</sup></span> <span>× (1 − 0.5 ×</span> <span>time elapsed / duration)</span></code></p>
+            <p class="formula" lang="fr"><code><span>points =</span> <span>100 × 10<sup>(rareté − 10) / 90</sup></span> <span>× (1 − 0,5 ×</span> <span>temps écoulé / durée)</span></code></p>
+            <p lang="en">Rounded, at most 1,000 points per answer. About 100 for the reflex answer; every +30 of rarity roughly doubles the base, up to 1,000 for the most obscure. Answer at once and you keep the whole base; at the deadline, half is left. Two players with the same answer: the faster one scores more.</p>
+            <p lang="fr">Arrondi, au plus 1&#8239;000 points par réponse. Environ 100 pour la réponse réflexe&nbsp;; chaque +30 de rareté double à peu près la base, jusqu’à 1&#8239;000 pour la plus pointue. Une réponse immédiate garde toute la base&nbsp;; à la fin du chrono, il en reste la moitié. Deux joueurs ont la même réponse&nbsp;: le plus rapide marque plus.</p>
 
             <!-- Shown only with JavaScript; the formula above stands on its own without it. -->
             <div class="calc needs-js" id="calc">
@@ -236,13 +236,13 @@
                 <output for="calc-rarity" id="calc-rarity-out" class="calc-val">45</output>
               </div>
               <div class="calc-row">
-                <label for="calc-time"><span lang="en">Time left</span><span lang="fr">Temps restant</span></label>
-                <input type="range" id="calc-time" min="0" max="100" step="1" value="62">
-                <output for="calc-time" id="calc-time-out" class="calc-val">62%</output>
+                <label for="calc-time"><span lang="en">Time elapsed</span><span lang="fr">Temps écoulé</span></label>
+                <input type="range" id="calc-time" min="0" max="100" step="1" value="38">
+                <output for="calc-time" id="calc-time-out" class="calc-val">38%</output>
               </div>
               <p class="calc-result" aria-live="polite">
                 <span class="chip" id="calc-tier"></span>
-                <span class="calc-points"><strong id="calc-points">283</strong> <span lang="en">points</span><span lang="fr">points</span></span>
+                <span class="calc-points"><strong id="calc-points">198</strong> <span lang="en">points</span><span lang="fr">points</span></span>
               </p>
             </div>
           </div>
@@ -405,7 +405,7 @@
       <div class="wrap split">
         <header class="section-head">
           <p class="eyebrow"><span lang="en">The questions</span><span lang="fr">Les questions</span></p>
-          <h2 id="questions-title"><span lang="en">3,960 questions in each language.</span><span lang="fr">3&#8239;960 questions dans chaque langue.</span></h2>
+          <h2 id="questions-title"><span lang="en">4,105 questions in each language.</span><span lang="fr">4&#8239;105 questions dans chaque langue.</span></h2>
           <p class="section-lede" lang="en">The French and English banks hold the same questions, translated. They don’t add up to more.</p>
           <p class="section-lede" lang="fr">Les banques française et anglaise contiennent les mêmes questions, traduites. Elles ne s’additionnent pas.</p>
         </header>
@@ -440,8 +440,8 @@
           </ul>
 
           <ul class="honest">
-            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 748 questions; Comics has 61.</li>
-            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 748 questions, la BD 61.</li>
+            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 756 questions; Comics has 64.</li>
+            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 756 questions, la BD 64.</li>
             <li lang="en"><strong>Not exhaustive.</strong> The lists come from public references and are still under editorial review. A word that isn’t listed is “not listed”, not necessarily wrong, and you can report it.</li>
             <li lang="fr"><strong>Pas exhaustif.</strong> Les listes viennent de références publiques et restent en revue éditoriale. Un mot absent est «&nbsp;non référencé&nbsp;», pas forcément faux, et vous pouvez le signaler.</li>
             <li lang="en"><strong>Some lists are snapshots.</strong> They say so in the question: film data covers releases before 2011, for instance, and F1 standings run through 2024.</li>
