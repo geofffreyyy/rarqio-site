@@ -5,13 +5,14 @@ quiz game. Static HTML/CSS with a little vanilla JS: no build step, no framework
 no cookies, no analytics, no third-party requests (system fonts, everything
 self-hosted).
 
-**Status: not published.** Rarqio is still in development; the page says
-"Coming soon to the App Store" and has no App Store link.
+**Status:** live on GitHub Pages at <https://geofffreyyy.github.io/rarqio-site/>,
+published from `main` (root). The app itself is still in development, so the
+page says "Coming soon to the App Store" and has no App Store link yet.
 
-## Address (to confirm)
+## Address
 
-The page assumes it will be served by GitHub Pages at
-<https://geofffreyyy.github.io/rarqio-site/> (a repository named `rarqio-site`).
+The page is served by GitHub Pages at
+<https://geofffreyyy.github.io/rarqio-site/> (repository `geofffreyyy/rarqio-site`).
 That address is hard-coded in:
 
 - `index.html`: `<link rel="canonical">`, `og:url`, `og:image`, `twitter:image`
