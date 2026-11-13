@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Sets data-lang before first paint (?lang= > saved choice > browser language). -->
+  <script src="lang.js"></script>
+  <title>Rarqio – Least obvious wins</title>
+  <meta name="description" content="Rarqio is a quiz game for iPhone and iPad. Answer open questions by typing: any correct answer counts, and the rarer it is, the more it scores. Solo, duel or up to 8 players, in French and English. Coming soon to the App Store.">
+  <meta name="theme-color" content="#0F1020">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <!-- TODO: once Rarqio is on the App Store, add the Smart App Banner and link the badges:
+       <meta name="apple-itunes-app" content="app-id=APP_STORE_ID"> -->
+  <link rel="canonical" href="https://geofffreyyy.github.io/rarqio-site/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Rarqio">
+  <meta property="og:title" content="Rarqio – Least obvious wins">
+  <meta property="og:description" content="A quiz game for iPhone and iPad: any correct answer counts, and the rarer it is, the more it scores. Coming soon to the App Store.">
+  <meta property="og:url" content="https://geofffreyyy.github.io/rarqio-site/">
+  <meta property="og:image" content="https://geofffreyyy.github.io/rarqio-site/assets/icon-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="Rarqio app icon: a lime gem shaped like a Q with a coral lightning tail">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Rarqio – Least obvious wins">
+  <meta name="twitter:description" content="A quiz game for iPhone and iPad: any correct answer counts, and the rarer it is, the more it scores. Coming soon to the App Store.">
+  <meta name="twitter:image" content="https://geofffreyyy.github.io/rarqio-site/assets/icon-512.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main"><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">
+        <img src="assets/icon-96.png" alt="" width="34" height="34">
+        <span>Rarqio</span>
+      </a>
+      <nav class="nav-links" aria-label="Sections" data-fr-aria-label="Sections">
+        <a href="#how"><span lang="en">How it plays</span><span lang="fr">Le principe</span></a>
+        <a class="nav-optional" href="#rarity"><span lang="en">Rarity</span><span lang="fr">Rareté</span></a>
+        <a class="nav-optional" href="#modes">Modes</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support"><span lang="en">Support</span><span lang="fr">Aide</span></a>
+        <a href="#privacy"><span lang="en">Privacy</span><span lang="fr">Confidentialité</span></a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language" data-fr-aria-label="Langue">
+        <button type="button" data-set-lang="fr" aria-pressed="false" aria-label="Français">FR</button>
+        <button type="button" data-set-lang="en" aria-pressed="true" aria-label="English">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span lang="en">A quiz game for iPhone and iPad</span><span lang="fr">Un jeu de quiz pour iPhone et iPad</span></p>
+          <h1 id="hero-title">
+            <span lang="en">Least obvious <span class="hl">wins.</span></span>
+            <span lang="fr">Le moins évident <span class="hl">gagne.</span></span>
+          </h1>
+          <p class="lede" lang="en">Rarqio asks open questions, like “Name a character from Cyrano de Bergerac”, and you type your answer. Any correct answer counts. The rarer it is, the more it scores.</p>
+          <p class="lede" lang="fr">Rarqio pose des questions ouvertes, comme «&nbsp;Cite un personnage de Cyrano de Bergerac&nbsp;», et vous tapez votre réponse. Toute bonne réponse compte. Plus elle est rare, plus elle rapporte.</p>
+
+          <div class="status">
+            <p class="soon"><span lang="en">Coming soon to the App Store</span><span lang="fr">Bientôt sur l’App Store</span></p>
+            <p class="status-note"><span lang="en">In development. iOS 17 or later, iPhone and iPad, in French and English.</span><span lang="fr">En développement. iOS&nbsp;17 ou ultérieur, iPhone et iPad, en français et en anglais.</span></p>
+          </div>
+
+          <ul class="facts-inline">
+            <li><span lang="en">No account</span><span lang="fr">Sans compte</span></li>
+            <li><span lang="en">No ads</span><span lang="fr">Sans pub</span></li>
+            <li><span lang="en">No tracking</span><span lang="fr">Sans pistage</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="device device-back">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/reveal-en.webp">
+                  <img src="screens/reveal-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="The reveal: “Rare, +283” for the answer Le Bret, then each player’s answer and points, and the score race.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/reveal-fr.webp">
+                  <img src="screens/reveal-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="La révélation : « Très rare, +456 » pour la réponse Panthère nébuleuse, puis la réponse et les points de chaque joueur, et la course des scores.">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+          </figure>
+          <figure class="device device-front">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/question-en.webp">
+                  <img src="screens/question-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="A question in progress: “Name a character from Edmond Rostand’s Cyrano de Bergerac.” The answer being typed is “Le Bret”.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/question-fr.webp">
+                  <img src="screens/question-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Une question en cours : « Cite un club champion de France de football (première division) avant 2025. » La réponse en cours de saisie est « FC Nantes ».">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SAMPLE QUESTIONS (real prompts from the bank) ============ -->
+    <section class="samples" aria-labelledby="samples-title">
+      <div class="wrap">
+        <h2 class="samples-title" id="samples-title"><span lang="en">From the question bank</span><span lang="fr">Extraits de la banque de questions</span></h2>
+        <ul class="sample-list">
+          <li><span class="sample-theme"><span lang="en">Nature &amp; animals</span><span lang="fr">Nature &amp; animaux</span></span><span class="sample-q"><span lang="en">Name a living bear species.</span><span lang="fr">Cite une espèce actuelle d’ours.</span></span></li>
+          <li><span class="sample-theme"><span lang="en">Music</span><span lang="fr">Musique</span></span><span class="sample-q"><span lang="en">Name a brass instrument.</span><span lang="fr">Cite un instrument de la famille des cuivres.</span></span></li>
+          <li><span class="sample-theme"><span lang="en">Science</span><span lang="fr">Sciences</span></span><span class="sample-q"><span lang="en">Name an element in group 18 of the periodic table.</span><span lang="fr">Cite un élément du groupe 18 du tableau périodique.</span></span></li>
+          <li><span class="sample-theme"><span lang="en">Food &amp; drink</span><span lang="fr">Cuisine &amp; gastronomie</span></span><span class="sample-q"><span lang="en">Name a citrus fruit.</span><span lang="fr">Cite un agrume.</span></span></li>
+          <li><span class="sample-theme"><span lang="en">Myths &amp; legends</span><span lang="fr">Mythes &amp; légendes</span></span><span class="sample-q"><span lang="en">Name a legendary island, city or realm.</span><span lang="fr">Cite une île, une cité ou un royaume légendaire.</span></span></li>
+          <li><span class="sample-theme"><span lang="en">Games &amp; toys</span><span lang="fr">Jeux &amp; jouets</span></span><span class="sample-q"><span lang="en">Name a traditional or ancient board game.</span><span lang="fr">Cite un jeu de plateau traditionnel ou antique.</span></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT PLAYS ============ -->
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap split">
+        <header class="section-head">
+          <p class="eyebrow"><span lang="en">How it plays</span><span lang="fr">Le principe</span></p>
+          <h2 id="how-title"><span lang="en">Three steps, then the reveal.</span><span lang="fr">Trois temps, puis la révélation.</span></h2>
+        </header>
+
+        <div class="section-body">
+          <ol class="steps">
+            <li>
+              <span class="step-num" aria-hidden="true">1</span>
+              <h3><span lang="en">One question, one timer</span><span lang="fr">Une question, un chrono</span></h3>
+              <p lang="en">Everyone gets the same open question at the same time, with 10 to 60 seconds to answer. One right answer is enough.</p>
+              <p lang="fr">Tout le monde reçoit la même question ouverte au même moment, avec 10 à 60 secondes pour répondre. Une seule bonne réponse suffit.</p>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">2</span>
+              <h3><span lang="en">Type a word</span><span lang="fr">Tapez un mot</span></h3>
+              <p lang="en">A word that isn’t on the list is turned down, not marked wrong: fix it or try another until time runs out. Accents and small typos are fine. Once a word is accepted, it’s locked in and stays hidden until the reveal.</p>
+              <p lang="fr">Un mot absent de la liste est refusé, pas compté faux&nbsp;: corrigez-le ou tentez autre chose jusqu’à la fin du chrono. Les accents et les petites fautes passent. Une fois acceptée, la réponse est verrouillée et reste cachée jusqu’à la révélation.</p>
+            </li>
+            <li>
+              <span class="step-num" aria-hidden="true">3</span>
+              <h3><span lang="en">Least obvious wins</span><span lang="fr">Le moins évident gagne</span></h3>
+              <p lang="en">Every accepted answer has a rarity. The rarer it is, the more it scores: up to ten times the most obvious one. Answering fast adds up to 25%.</p>
+              <p lang="fr">Chaque réponse acceptée a une rareté. Plus elle est rare, plus elle rapporte&nbsp;: jusqu’à dix fois la réponse la plus évidente. Répondre vite ajoute jusqu’à 25&#8239;%.</p>
+            </li>
+          </ol>
+          <p class="after-steps" lang="en">Then everyone’s answers appear with their rarity and points. Online, the next round starts by itself after four seconds; in solo, you move on at your own pace.</p>
+          <p class="after-steps" lang="fr">Puis les réponses de chacun apparaissent avec leur rareté et leurs points. En ligne, la manche suivante démarre seule après quatre secondes&nbsp;; en solo, vous avancez à votre rythme.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RARITY ============ -->
+    <section class="section" id="rarity" aria-labelledby="rarity-title">
+      <div class="wrap split">
+        <header class="section-head">
+          <p class="eyebrow"><span lang="en">Rarity</span><span lang="fr">La rareté</span></p>
+          <h2 id="rarity-title"><span lang="en">Five tiers, from Classic to Exceptional.</span><span lang="fr">Cinq paliers, de Classique à Singulière.</span></h2>
+          <p class="section-lede" lang="en">In each question, the answers are ranked on a scale from 0 to 100, from the most obvious to the most obscure. Rarity sets the base score; speed adds a bonus.</p>
+          <p class="section-lede" lang="fr">Dans chaque question, les réponses sont classées sur une échelle de 0 à 100, de la plus évidente à la plus pointue. La rareté fixe la base des points&nbsp;; la vitesse ajoute un bonus.</p>
+        </header>
+
+        <div class="section-body">
+          <!-- The tier colours are the app's own (RarityStyle in the app). Every tier is also named in text. -->
+          <ol class="tiers" aria-label="Rarity tiers" data-fr-aria-label="Paliers de rareté">
+            <li class="tier t-classic">
+              <span class="stamp"><span lang="en">Classic</span><span lang="fr">Classique</span></span>
+              <span class="tier-bar" aria-hidden="true"></span>
+              <span class="tier-range"><span lang="en">Rarity under 20</span><span lang="fr">Rareté sous 20</span></span>
+              <span class="tier-pts"><span lang="en">up to 126 pts</span><span lang="fr">jusqu’à 126&nbsp;pts</span></span>
+            </li>
+            <li class="tier t-unexpected">
+              <span class="stamp"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span>
+              <span class="tier-bar" aria-hidden="true"></span>
+              <span class="tier-range"><span lang="en">Rarity 20–39</span><span lang="fr">Rareté 20–39</span></span>
+              <span class="tier-pts">129–210&nbsp;pts</span>
+            </li>
+            <li class="tier t-rare">
+              <span class="stamp">Rare</span>
+              <span class="tier-bar" aria-hidden="true"></span>
+              <span class="tier-range"><span lang="en">Rarity 40–59</span><span lang="fr">Rareté 40–59</span></span>
+              <span class="tier-pts">215–350&nbsp;pts</span>
+            </li>
+            <li class="tier t-very">
+              <span class="stamp"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span>
+              <span class="tier-bar" aria-hidden="true"></span>
+              <span class="tier-range"><span lang="en">Rarity 60–79</span><span lang="fr">Rareté 60–79</span></span>
+              <span class="tier-pts">359–584&nbsp;pts</span>
+            </li>
+            <li class="tier t-exceptional">
+              <span class="stamp"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span>
+              <span class="tier-bar" aria-hidden="true"></span>
+              <span class="tier-range"><span lang="en">Rarity 80 and up</span><span lang="fr">Rareté 80 et plus</span></span>
+              <span class="tier-pts"><span lang="en">599–1,000 pts</span><span lang="fr">599–1&#8239;000&nbsp;pts</span></span>
+            </li>
+          </ol>
+          <p class="note-small" lang="en">Base points, before the speed bonus.</p>
+          <p class="note-small" lang="fr">Points de base, avant le bonus de vitesse.</p>
+
+          <div class="formula-block">
+            <h3><span lang="en">The formula</span><span lang="fr">La formule</span></h3>
+            <!-- Each <span> is kept on one line; the formula may only wrap between them. -->
+            <p class="formula" lang="en"><code><span>points =</span> <span>100 × 10<sup>(rarity − 10) / 90</sup></span> <span>× (1 + 0.25 ×</span> <span>time left / duration)</span></code></p>
+            <p class="formula" lang="fr"><code><span>points =</span> <span>100 × 10<sup>(rareté − 10) / 90</sup></span> <span>× (1 + 0,25 ×</span> <span>temps restant / durée)</span></code></p>
+            <p lang="en">Rounded, and capped at 1,250 points per answer. About 100 for the reflex answer; every +30 of rarity roughly doubles the base, up to 1,000 for the most obscure; speed adds at most 25%.</p>
+            <p lang="fr">Arrondi, et plafonné à 1&#8239;250 points par réponse. Environ 100 pour la réponse réflexe&nbsp;; chaque +30 de rareté double à peu près la base, jusqu’à 1&#8239;000 pour la plus pointue&nbsp;; la vitesse ajoute au plus 25&#8239;%.</p>
+
+            <!-- Shown only with JavaScript; the formula above stands on its own without it. -->
+            <div class="calc needs-js" id="calc">
+              <h4><span lang="en">Try it</span><span lang="fr">Essayez</span></h4>
+              <div class="calc-row">
+                <label for="calc-rarity"><span lang="en">Rarity</span><span lang="fr">Rareté</span></label>
+                <input type="range" id="calc-rarity" min="0" max="100" step="1" value="45">
+                <output for="calc-rarity" id="calc-rarity-out" class="calc-val">45</output>
+              </div>
+              <div class="calc-row">
+                <label for="calc-time"><span lang="en">Time left</span><span lang="fr">Temps restant</span></label>
+                <input type="range" id="calc-time" min="0" max="100" step="1" value="62">
+                <output for="calc-time" id="calc-time-out" class="calc-val">62%</output>
+              </div>
+              <p class="calc-result" aria-live="polite">
+                <span class="chip" id="calc-tier"></span>
+                <span class="calc-points"><strong id="calc-points">283</strong> <span lang="en">points</span><span lang="fr">points</span></span>
+              </p>
+            </div>
+          </div>
+
+          <figure class="ladder-figure">
+            <figcaption>
+              <span class="ladder-kicker"><span lang="en">Example</span><span lang="fr">Exemple</span></span>
+              <span class="ladder-q"><span lang="en">Name a character from Edmond Rostand’s Cyrano de Bergerac.</span><span lang="fr">Cite un personnage de Cyrano de Bergerac d’Edmond Rostand.</span></span>
+              <span class="ladder-note"><span lang="en">All 13 accepted answers, from the most obvious to the most obscure, with their base points. Bars run to 1,000, the highest possible base.</span><span lang="fr">Les 13 réponses acceptées, de la plus évidente à la plus pointue, avec leurs points de base. Les barres vont jusqu’à 1&#8239;000, la base maximale.</span></span>
+            </figcaption>
+            <ol class="ladder">
+              <li class="t-classic"><span class="l-name">Cyrano de Bergerac</span><span class="l-tier"><span lang="en">Classic</span><span lang="fr">Classique</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">100</span></li>
+              <li class="t-unexpected"><span class="l-name">Roxane</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">139</span></li>
+              <li class="t-unexpected"><span class="l-name">Christian de Neuvillette</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">176</span></li>
+              <li class="t-unexpected"><span class="l-name">Comte de Guiche</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">210</span></li>
+              <li class="t-rare"><span class="l-name">Le Bret</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">245</span></li>
+              <li class="t-rare"><span class="l-name">Ragueneau</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">285</span></li>
+              <li class="t-rare"><span class="l-name">Lise</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">324</span></li>
+              <li class="t-very"><span class="l-name">Carbon de Castel-Jaloux</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">369</span></li>
+              <li class="t-very"><span class="l-name">Montfleury</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">419</span></li>
+              <li class="t-very"><span class="l-name">Vicomte de Valvert</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">476</span></li>
+              <li class="t-very"><span class="l-name"><span lang="en">The Duenna</span><span lang="fr">La Duègne</span></span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">527</span></li>
+              <li class="t-very"><span class="l-name">Lignière</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">584</span></li>
+              <li class="t-exceptional"><span class="l-name"><span lang="en">Mother Marguerite</span><span lang="fr">Mère Marguerite</span></span><span class="l-tier"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">664</span></li>
+            </ol>
+          </figure>
+
+          <aside class="callout" aria-labelledby="editorial-title">
+            <h3 id="editorial-title"><span lang="en">Rarity is an editorial scale.</span><span lang="fr">La rareté est un barème éditorial.</span></h3>
+            <p lang="en">It is built offline, question by question, from written tiers and public hints such as historical IMDb votes, populations, F1 standings or the number of Wikipedia editions. It is the same for every player and is frozen with the question bank. It does not count what other players answered.</p>
+            <p lang="fr">Il est construit hors ligne, question par question, à partir de paliers rédigés et d’indices publics&nbsp;: anciens votes IMDb, populations, classements F1, nombre d’éditions de Wikipédia… Il est le même pour tous les joueurs et figé avec la banque de questions. Il ne compte pas ce que les autres joueurs ont répondu.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MODES ============ -->
+    <section class="section" id="modes" aria-labelledby="modes-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy">
+          <p class="eyebrow"><span lang="en">Ways to play</span><span lang="fr">Les modes</span></p>
+          <h2 id="modes-title"><span lang="en">Alone, head to head, or up to eight.</span><span lang="fr">Seul, en duel, ou jusqu’à huit.</span></h2>
+
+          <dl class="modes">
+            <div class="mode">
+              <dt>Solo</dt>
+              <dd lang="en">Quick Game: 5 questions from every theme. Or tap a theme to play it on your own. Stuck? Skip shows the answers. Solo works offline, without Game Center.</dd>
+              <dd lang="fr">Partie rapide&nbsp;: 5 questions, tous les thèmes. Ou touchez un thème pour y jouer seul. Bloqué&nbsp;? «&nbsp;Passer&nbsp;» affiche les réponses. Le solo fonctionne hors ligne, sans Game Center.</dd>
+            </div>
+            <div class="mode">
+              <dt>Duel</dt>
+              <dd lang="en">A random opponent online, found through Game Center. Two players, one match, no ranking.</dd>
+              <dd lang="fr">Un adversaire au hasard, en ligne, trouvé par Game Center. Deux joueurs, une partie, sans classement.</dd>
+            </div>
+            <div class="mode">
+              <dt><span lang="en">Friends</span><span lang="fr">Amis</span></dt>
+              <dd lang="en">A private room for 2 to 8 players. Invite your Game Center friends, or create a 6-character code and share it in any app. Every player for themselves, or teams of any size, scored as an average per player or as a team total. The host can start a rematch with the same players.</dd>
+              <dd lang="fr">Un salon privé de 2 à 8 joueurs. Invitez vos amis Game Center, ou créez un code à 6 caractères à partager sur n’importe quelle app. Chacun pour soi, ou en équipes de toutes tailles, au score moyen par joueur ou au total de l’équipe. L’hôte peut lancer une revanche avec les mêmes joueurs.</dd>
+            </div>
+          </dl>
+
+          <ul class="settings" aria-label="Game settings" data-fr-aria-label="Réglages de partie">
+            <li><span class="set-label"><span lang="en">Rounds</span><span lang="fr">Manches</span></span><span class="set-value">1 · 3 · 5 · 7 · 9</span></li>
+            <li><span class="set-label"><span lang="en">Seconds per question</span><span lang="fr">Secondes par question</span></span><span class="set-value"><span lang="en">10 to 60</span><span lang="fr">10 à 60</span></span></li>
+            <li><span class="set-label"><span lang="en">Level</span><span lang="fr">Niveau</span></span><span class="set-value"><span lang="en">Easy · Medium · Hard</span><span lang="fr">Facile · Moyen · Difficile</span></span></li>
+            <li><span class="set-label"><span lang="en">Themes</span><span lang="fr">Thèmes</span></span><span class="set-value"><span lang="en">one, several or all 24</span><span lang="fr">un, plusieurs ou les 24</span></span></li>
+          </ul>
+          <p class="note-small" lang="en">On Easy, everyone finds an answer: the challenge is the one nobody else will say. Medium and Hard are for connoisseurs. Duel and Friends need Game Center, and everyone in a game plays the same app version in the same question language.</p>
+          <p class="note-small" lang="fr">En Facile, tout le monde trouve une réponse&nbsp;: le défi, c’est celle que personne ne dira. Moyen et Difficile visent les connaisseurs. Duel et Amis demandent Game Center, et tous les joueurs d’une partie utilisent la même version de l’app et la même langue de questions.</p>
+        </div>
+
+        <div class="feature-visual pair">
+          <figure class="device">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/home-en.webp">
+                  <img src="screens/home-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Rarqio home screen: Quick Game, Easy, Medium and Hard levels, Duel and Friends tiles, and theme tiles to play solo.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/home-fr.webp">
+                  <img src="screens/home-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Écran d’accueil de Rarqio : Partie rapide, niveaux Facile, Moyen et Difficile, tuiles Duel et Amis, et thèmes à jouer en solo.">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption><span lang="en">Home</span><span lang="fr">Accueil</span></figcaption>
+          </figure>
+          <figure class="device">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/code-en.webp">
+                  <img src="screens/code-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="A private room code, SB5 5XS, with a Send the code button, while waiting for the other players.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/code-fr.webp">
+                  <img src="screens/code-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Un code de salon privé, XPS 5WB, avec le bouton Envoyer le code, en attendant les autres joueurs.">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption><span lang="en">Room code</span><span lang="fr">Code de salon</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AFTER THE GAME ============ -->
+    <section class="section" id="after" aria-labelledby="after-title">
+      <div class="wrap feature-grid reverse">
+        <div class="feature-copy">
+          <p class="eyebrow"><span lang="en">After the game</span><span lang="fr">Après la partie</span></p>
+          <h2 id="after-title"><span lang="en">Every round, laid out.</span><span lang="fr">Chaque manche, en détail.</span></h2>
+          <p lang="en">Results first: the scores race to the final ranking. Then <em>The rounds</em> goes back over each question: everyone’s answer with its rarity and points, the other accepted answers, a short fact and its sources.</p>
+          <p lang="fr">D’abord les résultats&nbsp;: les scores font la course jusqu’au classement final. Puis <em>Les manches</em> reprend chaque question&nbsp;: la réponse de chacun avec sa rareté et ses points, les autres réponses acceptées, une courte explication et ses sources.</p>
+          <p lang="en">It’s where you find out that Roxane was worth less than Ragueneau.</p>
+          <p lang="fr">C’est là qu’on découvre que Roxane rapportait moins que Ragueneau.</p>
+        </div>
+
+        <div class="feature-visual pair">
+          <figure class="device">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/results-en.webp">
+                  <img src="screens/results-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Results: “Chloé wins!” with the final ranking, a Rematch button and Review the rounds.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/results-fr.webp">
+                  <img src="screens/results-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Résultats : « Chloé gagne ! » avec le classement final, le bouton Revanche et Revoir les manches.">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption><span lang="en">Results</span><span lang="fr">Résultats</span></figcaption>
+          </figure>
+          <figure class="device">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/debrief-en.webp">
+                  <img src="screens/debrief-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="The rounds: round 1 with each player’s answer, its rarity and time, a short fact about the play and the other accepted answers.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/debrief-fr.webp">
+                  <img src="screens/debrief-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Les manches : la manche 1 avec la réponse de chaque joueur, sa rareté et son temps, une courte explication et les autres réponses acceptées.">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption><span lang="en">The rounds</span><span lang="fr">Les manches</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE QUESTIONS ============ -->
+    <section class="section" id="questions" aria-labelledby="questions-title">
+      <div class="wrap split">
+        <header class="section-head">
+          <p class="eyebrow"><span lang="en">The questions</span><span lang="fr">Les questions</span></p>
+          <h2 id="questions-title"><span lang="en">3,960 questions in each language.</span><span lang="fr">3&#8239;960 questions dans chaque langue.</span></h2>
+          <p class="section-lede" lang="en">The French and English banks hold the same questions, translated. They don’t add up to more.</p>
+          <p class="section-lede" lang="fr">Les banques française et anglaise contiennent les mêmes questions, traduites. Elles ne s’additionnent pas.</p>
+        </header>
+
+        <div class="section-body">
+          <h3 class="themes-title"><span lang="en">24 themes</span><span lang="fr">24 thèmes</span></h3>
+          <ul class="themes">
+            <li><span lang="en">General knowledge</span><span lang="fr">Culture générale</span></li>
+            <li><span lang="en">Geography</span><span lang="fr">Géographie</span></li>
+            <li><span lang="en">History</span><span lang="fr">Histoire</span></li>
+            <li><span lang="en">Science</span><span lang="fr">Sciences</span></li>
+            <li><span lang="en">Nature &amp; animals</span><span lang="fr">Nature &amp; animaux</span></li>
+            <li><span lang="en">Literature</span><span lang="fr">Littérature</span></li>
+            <li><span lang="en">Movies</span><span lang="fr">Cinéma</span></li>
+            <li><span lang="en">TV shows</span><span lang="fr">Séries</span></li>
+            <li><span lang="en">Anime &amp; manga</span><span lang="fr">Animés &amp; mangas</span></li>
+            <li><span lang="en">Video games</span><span lang="fr">Jeux vidéo</span></li>
+            <li><span lang="en">Geek culture</span><span lang="fr">Univers geek</span></li>
+            <li><span lang="en">Music</span><span lang="fr">Musique</span></li>
+            <li>Sport</li>
+            <li><span lang="en">Languages &amp; codes</span><span lang="fr">Langues &amp; codes</span></li>
+            <li><span lang="en">Food &amp; drink</span><span lang="fr">Cuisine &amp; gastronomie</span></li>
+            <li><span lang="en">Myths &amp; legends</span><span lang="fr">Mythes &amp; légendes</span></li>
+            <li><span lang="en">Space &amp; astronomy</span><span lang="fr">Espace &amp; astronomie</span></li>
+            <li>Art &amp; architecture</li>
+            <li><span lang="en">Human body &amp; health</span><span lang="fr">Corps humain &amp; santé</span></li>
+            <li>Tech &amp; internet</li>
+            <li><span lang="en">Cars &amp; transport</span><span lang="fr">Auto &amp; transports</span></li>
+            <li><span lang="en">Comics</span><span lang="fr">BD &amp; comics</span></li>
+            <li><span lang="en">Games &amp; toys</span><span lang="fr">Jeux &amp; jouets</span></li>
+            <li><span lang="en">TV &amp; media</span><span lang="fr">Télé &amp; médias</span></li>
+          </ul>
+
+          <ul class="honest">
+            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 748 questions; Comics has 61.</li>
+            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 748 questions, la BD 61.</li>
+            <li lang="en"><strong>Not exhaustive.</strong> The lists come from public references and are still under editorial review. A word that isn’t listed is “not listed”, not necessarily wrong, and you can report it.</li>
+            <li lang="fr"><strong>Pas exhaustif.</strong> Les listes viennent de références publiques et restent en revue éditoriale. Un mot absent est «&nbsp;non référencé&nbsp;», pas forcément faux, et vous pouvez le signaler.</li>
+            <li lang="en"><strong>Some lists are snapshots.</strong> They say so in the question: film data covers releases before 2011, for instance, and F1 standings run through 2024.</li>
+            <li lang="fr"><strong>Certaines listes sont datées.</strong> La question le précise&nbsp;: les données de films couvrent les sorties d’avant 2011, par exemple, et les classements F1 vont jusqu’à 2024.</li>
+            <li lang="en"><strong>New questions first.</strong> Questions you haven’t seen come first, with themes kept in balance. Older ones come back only when the selection runs out.</li>
+            <li lang="fr"><strong>L’inédit d’abord.</strong> Les questions jamais vues passent en premier, en équilibrant les thèmes. Les plus anciennes ne reviennent que lorsque la sélection est épuisée.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROFILE ============ -->
+    <section class="section" id="profile" aria-labelledby="profile-title">
+      <div class="wrap feature-grid">
+        <div class="feature-copy">
+          <p class="eyebrow"><span lang="en">Your profile</span><span lang="fr">Votre profil</span></p>
+          <h2 id="profile-title"><span lang="en">Your best find, kept on your device.</span><span lang="fr">Votre plus belle trouvaille, gardée sur votre appareil.</span></h2>
+          <p lang="en">The profile keeps your rarest answer, the gems you’ve found, your share of answers found, online wins, your streak of days, your strongest theme and the questions you’ve discovered. None of it leaves your iPhone or iPad.</p>
+          <p lang="fr">Le profil garde votre réponse la plus rare, les pépites trouvées, votre taux de réponses trouvées, vos victoires en ligne, votre série de jours, votre thème fort et les questions découvertes. Rien de tout cela ne quitte votre iPhone ou votre iPad.</p>
+        </div>
+        <div class="feature-visual single">
+          <figure class="device">
+            <div class="phone">
+              <div class="screen">
+                <picture lang="en">
+                  <source type="image/webp" srcset="screens/profile-en.webp">
+                  <img src="screens/profile-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Profile: best find “Czechoslovakia” (Very rare, +702), gems found, answers found, online wins, best streak and best theme.">
+                </picture>
+                <picture lang="fr">
+                  <source type="image/webp" srcset="screens/profile-fr.webp">
+                  <img src="screens/profile-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Profil : plus belle trouvaille « Tchécoslovaquie » (Très rare, +702), pépites trouvées, réponses trouvées, victoires en ligne, meilleure série et thème fort.">
+                </picture>
+                <span class="island" aria-hidden="true"></span>
+              </div>
+            </div>
+            <figcaption><span lang="en">Profile</span><span lang="fr">Profil</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATUS ============ -->
+    <section class="section section-tight" aria-labelledby="launch-title">
+      <div class="wrap">
+        <div class="launch">
+          <img class="launch-icon" src="assets/icon-192.png" width="96" height="96" alt="" loading="lazy" decoding="async">
+          <div>
+            <h2 id="launch-title"><span lang="en">Rarqio is on its way to the App Store.</span><span lang="fr">Rarqio arrive bientôt sur l’App Store.</span></h2>
+            <p lang="en">It isn’t available yet. When it is, this page will link to it.</p>
+            <p lang="fr">L’app n’est pas encore disponible. Dès qu’elle le sera, cette page renverra vers elle.</p>
+          </div>
+          <p class="soon"><span lang="en">Coming soon</span><span lang="fr">Bientôt</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="wrap narrow">
+        <header class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2 id="faq-title"><span lang="en">Questions about the questions.</span><span lang="fr">Des questions sur les questions.</span></h2>
+        </header>
+
+        <div class="faq">
+          <details name="faq">
+            <summary><span lang="en">Is rarity based on what other players answer?</span><span lang="fr">La rareté dépend-elle des réponses des autres joueurs&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">No. Rarity is an editorial scale, built offline for each question from written tiers and public hints (historical IMDb votes, populations, F1 standings, the number of Wikipedia editions…). It is the same for everyone and doesn’t change as people play.</p>
+              <p lang="fr">Non. La rareté est un barème éditorial, construit hors ligne pour chaque question à partir de paliers rédigés et d’indices publics (anciens votes IMDb, populations, classements F1, nombre d’éditions de Wikipédia…). Il est le même pour tous et ne change pas au fil des parties.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">My answer is right, but it wasn’t accepted.</span><span lang="fr">Ma réponse est juste, mais elle a été refusée.</span></summary>
+            <div class="answer">
+              <p lang="en">The lists aren’t exhaustive, so a correct word can be missing. You can keep trying other answers until the timer ends. When a word is turned down, tap <strong>Report</strong>: it’s saved on your device under <strong>Profile › Reported words</strong>, and you can export that list and email it to me.</p>
+              <p lang="fr">Les listes ne sont pas exhaustives&nbsp;: un mot juste peut manquer. Vous pouvez continuer à tenter d’autres réponses jusqu’à la fin du chrono. Quand un mot est refusé, touchez <strong>Signaler</strong>&nbsp;: il est gardé sur votre appareil dans <strong>Profil › Mots signalés</strong>, et vous pouvez exporter cette liste pour me l’envoyer par e-mail.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">What if two players give the same answer?</span><span lang="fr">Et si deux joueurs donnent la même réponse&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">No penalty: both score it. Answers stay hidden from the other players until the reveal.</p>
+              <p lang="fr">Aucune pénalité&nbsp;: les deux marquent. Les réponses restent cachées aux autres joueurs jusqu’à la révélation.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">Do I need Game Center?</span><span lang="fr">Faut-il Game Center&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">Only for Duel and Friends. Solo works without it, even offline.</p>
+              <p lang="fr">Seulement pour Duel et Amis. Le solo fonctionne sans, même hors ligne.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">Can French and English speakers play together?</span><span lang="fr">Francophones et anglophones peuvent-ils jouer ensemble&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">Not in the same game yet: everyone in a game plays in the same question language. Public matchmaking keeps the languages apart, and friends pick the same language in Profile before inviting each other.</p>
+              <p lang="fr">Pas encore dans la même partie&nbsp;: tous les joueurs d’une partie utilisent la même langue de questions. La recherche publique sépare les langues, et des amis choisissent la même langue dans Profil avant de s’inviter.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">Is the duel ranked?</span><span lang="fr">Le duel est-il classé&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">No. A duel is a single match against a random opponent, with no rating or leaderboard.</p>
+              <p lang="fr">Non. Un duel est une partie contre un adversaire au hasard, sans classement ni cote.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">Is there a chat?</span><span lang="fr">Y a-t-il une discussion&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">Only in the lobby of a private room, between the players who are in it. It isn’t a messaging service: messages aren’t stored and disappear when you leave the room. You can hide a player’s messages on your side.</p>
+              <p lang="fr">Seulement dans le salon d’attente d’une partie privée, entre les joueurs présents. Ce n’est pas une messagerie&nbsp;: les messages ne sont pas conservés et disparaissent quand vous quittez le salon. Vous pouvez masquer les messages d’un joueur de votre côté.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">Which devices does it run on?</span><span lang="fr">Sur quels appareils fonctionne-t-elle&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">iPhone and iPad with iOS 17 or later. The app is in French and English; it starts in your device’s language and you can switch in Profile.</p>
+              <p lang="fr">iPhone et iPad sous iOS&nbsp;17 ou ultérieur. L’app est en français et en anglais&nbsp;; elle démarre dans la langue de l’appareil, et vous pouvez en changer dans Profil.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary><span lang="en">When can I download it?</span><span lang="fr">Quand pourrai-je la télécharger&nbsp;?</span></summary>
+            <div class="answer">
+              <p lang="en">Rarqio is still in development and not on the App Store yet. This page will link to it as soon as it is.</p>
+              <p lang="fr">Rarqio est encore en développement et n’est pas encore sur l’App Store. Cette page renverra vers elle dès qu’elle y sera.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SUPPORT ============ -->
+    <section class="section" id="support" aria-labelledby="support-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span lang="en">Support</span><span lang="fr">Assistance</span></p>
+          <h2 id="support-title"><span lang="en">Need a hand?</span><span lang="fr">Besoin d’un coup de main&nbsp;?</span></h2>
+          <p class="section-lede" lang="en">Found a bug, a missing answer, or a question that looks wrong? Write to me. I’m the developer, and I read every message.</p>
+          <p class="section-lede" lang="fr">Un bug, une réponse manquante, une question qui semble fausse&nbsp;? Écrivez-moi. Je suis le développeur, et je lis tous les messages.</p>
+        </header>
+
+        <div class="support-grid">
+          <div class="card contact-card">
+            <h3><span lang="en">Email support</span><span lang="fr">Écrire au support</span></h3>
+            <a class="email" href="mailto:supportgeof973@gmail.com?subject=Rarqio">supportgeof973@gmail.com</a>
+            <p class="muted"><span lang="en">Usually answered within a few days.</span><span lang="fr">Réponse en général sous quelques jours.</span></p>
+            <a class="btn-primary" href="mailto:supportgeof973@gmail.com?subject=Rarqio"><span lang="en">Write an email</span><span lang="fr">Envoyer un e-mail</span></a>
+          </div>
+
+          <div class="card">
+            <h3><span lang="en">Reporting a bug?</span><span lang="fr">Vous signalez un bug&nbsp;?</span></h3>
+            <p class="muted" lang="en">Include these and I can fix it much faster:</p>
+            <p class="muted" lang="fr">Ajoutez ces informations, je pourrai corriger bien plus vite&nbsp;:</p>
+            <ol class="checklist">
+              <li><span lang="en"><strong>Your device</strong> (for example, iPhone 15 or iPad Air)</span><span lang="fr"><strong>Votre appareil</strong> (par exemple, iPhone 15 ou iPad Air)</span></li>
+              <li><span lang="en"><strong>Your iOS version</strong>: Settings › General › About</span><span lang="fr"><strong>Votre version d’iOS</strong>&nbsp;: Réglages › Général › Informations</span></li>
+              <li><span lang="en"><strong>The app version</strong>: Settings › General › iPhone Storage › Rarqio</span><span lang="fr"><strong>La version de l’app</strong>&nbsp;: Réglages › Général › Stockage iPhone › Rarqio</span></li>
+              <li><span lang="en"><strong>The game</strong>: solo, duel or private room, how many players, and the question language</span><span lang="fr"><strong>La partie</strong>&nbsp;: solo, duel ou salon privé, le nombre de joueurs et la langue des questions</span></li>
+              <li><span lang="en"><strong>What happened</strong>: the question, what you typed or tapped; a screenshot or screen recording helps a lot</span><span lang="fr"><strong>Ce qui s’est passé</strong>&nbsp;: la question, ce que vous avez tapé ou touché&nbsp;; une capture ou un enregistrement d’écran aide beaucoup</span></li>
+            </ol>
+          </div>
+
+          <div class="card">
+            <h3><span lang="en">A missing or wrong answer?</span><span lang="fr">Une réponse manquante ou fausse&nbsp;?</span></h3>
+            <p lang="en">Send the question as it appears, the word you typed, and the language you play in. If you used <strong>Report</strong> in the app, you can export the list from <strong>Profile › Reported words</strong> and attach it.</p>
+            <p lang="fr">Envoyez la question telle qu’elle s’affiche, le mot tapé et la langue de jeu. Si vous avez utilisé <strong>Signaler</strong> dans l’app, vous pouvez exporter la liste depuis <strong>Profil › Mots signalés</strong> et la joindre.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRIVACY ============ -->
+    <section class="section" id="privacy" aria-labelledby="privacy-title">
+      <div class="wrap narrow">
+        <header class="section-head">
+          <p class="eyebrow"><span lang="en">Privacy</span><span lang="fr">Confidentialité</span></p>
+          <h2 id="privacy-title"><span lang="en">Privacy Policy</span><span lang="fr">Politique de confidentialité</span></h2>
+          <p class="date-chip"><span lang="en">Effective date: November 13, 2026</span><span lang="fr">En vigueur au 13&nbsp;novembre 2026</span></p>
+        </header>
+
+        <article class="card policy">
+          <div class="tldr">
+            <p lang="en"><strong>In short: I collect nothing.</strong> Rarqio has no account, no server, no analytics, no ads and no in-app purchases. Your progress stays on your device. When you play online, Apple’s Game Center carries what the other players in that game need to see, directly between players.</p>
+            <p lang="fr"><strong>En bref&nbsp;: je ne collecte rien.</strong> Rarqio n’a ni compte, ni serveur, ni mesure d’audience, ni pub, ni achat intégré. Votre progression reste sur votre appareil. Quand vous jouez en ligne, Game Center (Apple) transmet ce que les autres joueurs de la partie doivent voir, directement entre joueurs.</p>
+          </div>
+
+          <p lang="en">This policy explains how Rarqio (“the app”), developed by Geoffrey Guerin, an independent developer, handles your information.</p>
+          <p lang="fr">Cette politique explique comment Rarqio («&nbsp;l’app&nbsp;»), développée par Geoffrey Guerin, développeur indépendant, traite vos informations.</p>
+
+          <h3><span lang="en">Information collected</span><span lang="fr">Données collectées</span></h3>
+          <p lang="en">None. The app does not send any personal data to me or to any server of mine (there isn’t one), does not track you across apps or websites, and does not share or sell anything to anyone.</p>
+          <p lang="fr">Aucune. L’app ne m’envoie aucune donnée personnelle, ni à aucun serveur qui m’appartienne (il n’y en a pas), ne vous suit pas d’une app ou d’un site à l’autre, et ne partage ni ne vend quoi que ce soit à qui que ce soit.</p>
+
+          <h3><span lang="en">No account</span><span lang="fr">Pas de compte</span></h3>
+          <p lang="en">There is no Rarqio account. You never need to sign up or give an email address. Solo play needs nothing at all; online play uses your existing Game Center account, managed by Apple.</p>
+          <p lang="fr">Il n’existe pas de compte Rarqio. Vous n’avez jamais besoin de vous inscrire ni de donner une adresse e-mail. Le solo ne demande rien&nbsp;; le jeu en ligne utilise votre compte Game Center existant, géré par Apple.</p>
+
+          <h3><span lang="en">No analytics, ads or third-party SDKs</span><span lang="fr">Ni mesure d’audience, ni pub, ni SDK tiers</span></h3>
+          <p lang="en">The app contains no analytics, no advertising, no in-app purchases and no third-party SDKs. Its privacy manifest declares no data collection and no tracking. If you have chosen to share analytics with app developers in your device’s settings, Apple may provide me with anonymous crash reports, under Apple’s privacy policy.</p>
+          <p lang="fr">L’app ne contient aucun outil de mesure d’audience, aucune publicité, aucun achat intégré et aucun SDK tiers. Son manifeste de confidentialité ne déclare aucune collecte de données ni aucun pistage. Si vous avez choisi de partager les analyses avec les développeurs dans les réglages de votre appareil, Apple peut me transmettre des rapports de plantage anonymes, selon sa propre politique de confidentialité.</p>
+
+          <h3><span lang="en">Data stored on your iPhone</span><span lang="fr">Données stockées sur votre iPhone</span></h3>
+          <p lang="en">The app saves, only on your device (in its local storage, UserDefaults): your nickname, your stats and best find, your streak, your language and level choices, the questions you’ve recently played (to avoid repeats), the words you’ve reported, and the game-specific Game Center IDs of up to 60 players you’ve played online (for “Played recently”). None of it is sent to me. It is deleted when you delete the app. Reported words leave your device only if you export them yourself.</p>
+          <p lang="fr">L’app enregistre, uniquement sur votre appareil (dans son stockage local, UserDefaults)&nbsp;: votre pseudo, vos statistiques et votre plus belle trouvaille, votre série, vos choix de langue et de niveau, les questions jouées récemment (pour éviter les répétitions), les mots que vous avez signalés, et les identifiants Game Center propres au jeu d’au plus 60 joueurs croisés en ligne (pour «&nbsp;Joué récemment&nbsp;»). Rien de tout cela ne m’est envoyé. Tout est effacé quand vous supprimez l’app. Les mots signalés ne quittent votre appareil que si vous les exportez vous-même.</p>
+
+          <h3><span lang="en">Playing online with Game Center</span><span lang="fr">Jouer en ligne avec Game Center</span></h3>
+          <p lang="en">Duel and Friends use Apple’s Game Center. During an online game, Game Center carries, directly between the players of that game, your nickname or Game Center alias, your answers and scores, the IDs of questions you’ve recently played (so nobody gets a repeat) and, in a private room, your lobby chat messages. I don’t receive or store any of it. Lobby messages are not kept after you leave the room. If you choose to load your friends, iOS asks your permission to show your Game Center friends; the app does not read your contacts. Game Center itself is run by Apple, under <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+          <p lang="fr">Duel et Amis utilisent Game Center, le service d’Apple. Pendant une partie en ligne, Game Center transmet, directement entre les joueurs de cette partie, votre pseudo ou votre alias Game Center, vos réponses et vos scores, les identifiants des questions jouées récemment (pour éviter les répétitions) et, dans un salon privé, vos messages de discussion. Je ne reçois ni ne conserve rien de tout cela. Les messages du salon ne sont pas gardés après votre départ. Si vous choisissez de charger vos amis, iOS vous demande l’autorisation d’afficher vos amis Game Center&nbsp;; l’app ne lit pas vos contacts. Game Center est géré par Apple, selon <a href="https://www.apple.com/fr/legal/privacy/">la politique de confidentialité d’Apple</a>.</p>
+
+          <h3><span lang="en">Children</span><span lang="fr">Enfants</span></h3>
+          <p lang="en">Because the app collects no data at all, it collects no data from children. Online play goes through Game Center, which parents can restrict with Screen Time.</p>
+          <p lang="fr">Comme l’app ne collecte aucune donnée, elle n’en collecte aucune auprès des enfants. Le jeu en ligne passe par Game Center, que les parents peuvent restreindre avec Temps d’écran.</p>
+
+          <h3><span lang="en">This website</span><span lang="fr">Ce site</span></h3>
+          <p lang="en">This website sets no cookies and uses no analytics, trackers or third-party resources: it uses your device’s own fonts and loads everything from this site. Your language choice is remembered in your browser’s local storage, on your device only. The site is hosted on GitHub Pages; like any web host, GitHub may process technical data such as your IP address to deliver the page.</p>
+          <p lang="fr">Ce site ne dépose aucun cookie et n’utilise ni mesure d’audience, ni traceur, ni ressource tierce&nbsp;: il utilise les polices de votre appareil et charge tout depuis ce site. Votre choix de langue est mémorisé dans le stockage local de votre navigateur, sur votre appareil uniquement. Le site est hébergé par GitHub Pages&nbsp;; comme tout hébergeur, GitHub peut traiter des données techniques, comme votre adresse IP, pour afficher la page.</p>
+
+          <h3><span lang="en">Changes to this policy</span><span lang="fr">Modifications</span></h3>
+          <p lang="en">If this policy changes, the new version will be posted on this page with an updated effective date.</p>
+          <p lang="fr">En cas de changement, la nouvelle version sera publiée sur cette page avec une nouvelle date d’entrée en vigueur.</p>
+
+          <h3>Contact</h3>
+          <p lang="en">Questions about privacy? Email <a href="mailto:supportgeof973@gmail.com?subject=Rarqio%20privacy">supportgeof973@gmail.com</a>.</p>
+          <p lang="fr">Une question sur la confidentialité&nbsp;? Écrivez à <a href="mailto:supportgeof973@gmail.com?subject=Rarqio%20confidentialit%C3%A9">supportgeof973@gmail.com</a>.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ CREDITS & LICENCES ============ -->
+    <!-- Wording follows the app's own notices (App/Resources/ContentNotices*.txt). -->
+    <section class="section" id="credits" aria-labelledby="credits-title">
+      <div class="wrap narrow">
+        <header class="section-head">
+          <p class="eyebrow"><span lang="en">Credits &amp; licences</span><span lang="fr">Crédits et licences</span></p>
+          <h2 id="credits-title"><span lang="en">Where the answers come from.</span><span lang="fr">D’où viennent les réponses.</span></h2>
+          <p class="section-lede" lang="en">Question wording and explanations were written for Rarqio. Names, dates and relationships come from the references linked in each question and from these open datasets.</p>
+          <p class="section-lede" lang="fr">Les formulations et explications ont été rédigées pour Rarqio. Les noms, dates et relations proviennent des références citées dans chaque question et de ces jeux de données ouverts.</p>
+        </header>
+
+        <ul class="credits">
+          <li>
+            <h3><a href="https://www.wikidata.org/">Wikidata</a></h3>
+            <p class="credit-licence"><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></p>
+            <p lang="en">Wikidata contributors. Long factual lists, imported on 12 November 2026. Changes: selection, grouping, translations, aliases, question wording and an editorial ranking by number of Wikipedia editions. The lists are bounded in time and not live.</p>
+            <p lang="fr">Contributeurs de Wikidata. Longues listes factuelles, importées le 12&nbsp;novembre 2026. Modifications&nbsp;: sélection, regroupement, traductions, alias, formulation des questions et classement éditorial selon le nombre d’éditions de Wikipédia. Les listes sont bornées dans le temps et ne sont pas mises à jour en direct.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/PokeAPI/pokeapi">PokéAPI</a></h3>
+            <p class="credit-licence"><a href="https://opensource.org/license/bsd-3-clause">BSD-3-Clause</a></p>
+            <p lang="en">© 2013–2023 Paul Hallett and PokéAPI contributors. French and English species names, generations and default-form types. Pokémon and Pokémon character names are trademarks of Nintendo.</p>
+            <p lang="fr">© 2013–2023 Paul Hallett et les contributeurs de PokéAPI. Noms d’espèces en français et en anglais, générations et types de la forme par défaut. Pokémon et les noms des personnages Pokémon sont des marques de Nintendo.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/phalt/swapi">SWAPI</a></h3>
+            <p class="credit-licence"><a href="https://opensource.org/license/bsd-3-clause">BSD-3-Clause</a></p>
+            <p lang="en">© 2015 Paul Hallett. Factual names and relationships for Star Wars Episodes I–VI.</p>
+            <p lang="fr">© 2015 Paul Hallett. Noms et relations factuels des épisodes I à VI de Star Wars.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/janaipakos/ghibliapi">Ghibli API</a></h3>
+            <p class="credit-licence"><a href="https://opensource.org/license/mit">MIT</a></p>
+            <p lang="en">© 2013 typicode. Factual Studio Ghibli film data; French titles were added for the game.</p>
+            <p lang="fr">© 2013 typicode. Données factuelles sur les films du Studio Ghibli&nbsp;; les titres français ont été ajoutés pour le jeu.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/vega/vega-datasets">Vega Datasets</a> <span class="credit-sub">movies.json</span></h3>
+            <p class="credit-licence"><a href="https://opensource.org/license/bsd-3-clause">BSD-3-Clause</a></p>
+            <p lang="en">Historical film data, releases before 2011 (licence as declared in its datapackage.json). Historical IMDb vote counts are used only as an editorial scoring hint, not as current popularity or player-answer frequency.</p>
+            <p lang="fr">Données historiques de films, sorties antérieures à 2011 (licence déclarée dans son datapackage.json). Les anciens nombres de votes IMDb servent uniquement d’indice éditorial pour le barème, pas de mesure de popularité actuelle ni des réponses des joueurs.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/mledoze/countries">mledoze/countries</a></h3>
+            <p class="credit-licence"><a href="https://opendatacommons.org/licenses/odbl/1-0/">ODbL 1.0</a></p>
+            <p lang="en">mledoze/countries and contributors. Countries, capitals, borders and languages. Changes: selection, grouping, translations, aliases and editorial scoring. The adapted country database is offered under the Open Database License 1.0, as machine-readable JSON, in the app: How to play › Data credits and licences › Export geographical data (ODbL). This notice does not license the app’s code.</p>
+            <p lang="fr">mledoze/countries et ses contributeurs. Pays, capitales, frontières et langues. Modifications&nbsp;: sélection, regroupement, traductions, alias et barème éditorial. La base de pays adaptée est proposée sous Open Database License 1.0, au format JSON lisible par machine, dans l’app&nbsp;: Comment on joue › Crédits et licences des données › Exporter les données géographiques (ODbL). Cette notice ne concerne pas le code de l’app.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/f1db/f1db">F1DB</a></h3>
+            <p class="credit-licence"><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+            <p lang="en">F1DB contributors. Changes: final standings through 2024, grouping, name formatting and bilingual question wording. No current-season data or official affiliation is claimed.</p>
+            <p lang="fr">Contributeurs de F1DB. Modifications&nbsp;: classements finaux jusqu’à 2024, regroupement, mise en forme des noms et formulation bilingue des questions. Aucune donnée de la saison en cours ni affiliation officielle n’est revendiquée.</p>
+          </li>
+          <li>
+            <h3><a href="https://github.com/dariusk/corpora">Corpora</a></h3>
+            <p class="credit-licence"><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a></p>
+            <p lang="en">Darius Kazemi and contributors. Changes: selection, grouping, aliases, translations and question wording. Historical snapshots are labelled with their period.</p>
+            <p lang="fr">Darius Kazemi et ses contributeurs. Modifications&nbsp;: sélection, regroupement, alias, traductions et formulation des questions. Les instantanés historiques indiquent leur période.</p>
+          </li>
+        </ul>
+
+        <div class="disclaimer">
+          <p lang="en">Trademarks, characters and titles belong to their respective owners. Rarqio is not affiliated with or endorsed by them. No artwork, dialogue or story excerpts are reproduced. The full licence texts are in the app: tap <strong>?</strong> on the home screen, then <strong>Data credits and licences</strong>.</p>
+          <p lang="fr">Les marques, personnages et titres appartiennent à leurs titulaires respectifs. Rarqio n’est ni affilié à eux ni approuvé par eux. Aucun visuel, dialogue, scénario ou résumé des œuvres n’est reproduit. Le texte complet des licences se trouve dans l’app&nbsp;: touchez <strong>?</strong> sur l’accueil, puis <strong>Crédits et licences des données</strong>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <img src="assets/icon-96.png" alt="" width="34" height="34" loading="lazy" decoding="async">
+          <span>Rarqio</span>
+        </a>
+        <p class="muted"><span lang="en">Least obvious wins.</span><span lang="fr">Le moins évident gagne.</span></p>
+      </div>
+      <nav class="footer-links" aria-label="Footer" data-fr-aria-label="Pied de page">
+        <a href="#how"><span lang="en">How it plays</span><span lang="fr">Le principe</span></a>
+        <a href="#faq">FAQ</a>
+        <a href="#support"><span lang="en">Support</span><span lang="fr">Aide</span></a>
+        <a href="#privacy"><span lang="en">Privacy</span><span lang="fr">Confidentialité</span></a>
+        <a href="#credits"><span lang="en">Credits &amp; licences</span><span lang="fr">Crédits et licences</span></a>
+        <a href="mailto:supportgeof973@gmail.com?subject=Rarqio">supportgeof973@gmail.com</a>
+      </nav>
+      <div class="footer-legal">
+        <p><span lang="en">© 2026 Geoffrey Guerin. All rights reserved.</span><span lang="fr">© 2026 Geoffrey Guerin. Tous droits réservés.</span></p>
+        <p class="tiny"><span lang="en">Screenshots from the development build, with example players.</span><span lang="fr">Captures de la version en développement, avec des joueurs d’exemple.</span></p>
+        <p class="tiny"><span lang="en">Apple, iPhone, iPad, Game Center and App Store are trademarks of Apple Inc., registered in the U.S. and other countries and regions.</span><span lang="fr">Apple, iPhone, iPad, Game Center et App Store sont des marques d’Apple Inc., déposées aux États-Unis et dans d’autres pays et régions.</span></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
