@@ -1,12 +1,14 @@
 {
   "applinks": {
+    "apps": [],
     "details": [
       {
-        "appIDs": ["BDS2QJ2F8T.com.geof973.rarqio"],
-        "components": [
-          { "/": "/rarqio-site/defi", "comment": "Daily challenge link shared from the app" },
-          { "/": "/rarqio-site/defi/*", "comment": "Daily challenge link shared from the app" }
-        ]
+        "appID": "BDS2QJ2F8T.com.geof973.lasthit",
+        "paths": ["/lasthit-site/join/*", "/lasthit-site/invite/*"]
+      },
+      {
+        "appID": "BDS2QJ2F8T.com.geof973.rarqio",
+        "paths": ["/rarqio-site/defi", "/rarqio-site/defi/*"]
       }
     ]
   }

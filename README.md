@@ -118,8 +118,9 @@ the release.
 
 `defi/` is the page behind the link shared from the daily challenge. It opens the app
 through `rarqio://defi`. For the link to open the app directly (universal link), the
-root site of the account must serve `/.well-known/apple-app-site-association`; the
-content to publish is kept in `well-known-for-root-site/`.
+root site of the account must list Rarqio in `/.well-known/apple-app-site-association`
+(it already serves that file for LastHit); the merged file to publish is kept in
+`well-known-for-root-site/`.
 
 ## Before publishing
 
