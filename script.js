@@ -29,8 +29,8 @@
 
   // ---------- Score calculator ----------
   // Same rule as the app (GameCore/AnswerMatcher.swift):
-  // 100 × 10^((rarity − 10) / 90) × (1 − 0.5 × time elapsed / duration),
-  // rarity clamped to 0–100, rounded, at most 1,000 (half the base at the deadline).
+  // 10 × rarity × (1.15 − 0.20 × time elapsed / duration),
+  // rarity clamped to 0–100, rounded, at most 1,150 (+15% at once, −5% at the deadline).
   var calc = (function () {
     var rarityInput = document.getElementById('calc-rarity');
     var timeInput = document.getElementById('calc-time');
@@ -53,8 +53,8 @@
     function points(rarity, elapsedShare) {
       var r = Math.min(100, Math.max(0, rarity));
       var e = Math.min(1, Math.max(0, elapsedShare));
-      var base = 100 * Math.pow(10, (r - 10) / 90);
-      return Math.min(1000, Math.round(base * (1 - 0.5 * e)));
+      var quality = 10 * r;
+      return Math.min(1150, Math.round(quality * (1 + (0.15 - (0.15 + 0.05) * e))));
     }
 
     function tierFor(rarity) {

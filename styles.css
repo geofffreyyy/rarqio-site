@@ -861,7 +861,7 @@ code {
   }
 }
 
-/* Worked example: the Cyrano ladder (bars scaled to 1,000 base points) */
+/* Worked example: the Cyrano ladder (bars scaled to 1,000 points, before the speed bonus) */
 .ladder-figure {
   margin: 44px 0 0;
 }
@@ -955,18 +955,18 @@ code {
 
 /* Base points / 10 = bar width in % of 1,000. Values from the app's catalogue. */
 .ladder li:nth-child(1)  { --w: 10%; }
-.ladder li:nth-child(2)  { --w: 13.9%; }
-.ladder li:nth-child(3)  { --w: 17.6%; }
-.ladder li:nth-child(4)  { --w: 21%; }
-.ladder li:nth-child(5)  { --w: 24.5%; }
-.ladder li:nth-child(6)  { --w: 28.5%; }
-.ladder li:nth-child(7)  { --w: 32.4%; }
-.ladder li:nth-child(8)  { --w: 36.9%; }
-.ladder li:nth-child(9)  { --w: 41.9%; }
-.ladder li:nth-child(10) { --w: 47.6%; }
-.ladder li:nth-child(11) { --w: 52.7%; }
-.ladder li:nth-child(12) { --w: 58.4%; }
-.ladder li:nth-child(13) { --w: 66.4%; }
+.ladder li:nth-child(2)  { --w: 23%; }
+.ladder li:nth-child(3)  { --w: 32%; }
+.ladder li:nth-child(4)  { --w: 39%; }
+.ladder li:nth-child(5)  { --w: 45%; }
+.ladder li:nth-child(6)  { --w: 51%; }
+.ladder li:nth-child(7)  { --w: 56%; }
+.ladder li:nth-child(8)  { --w: 61%; }
+.ladder li:nth-child(9)  { --w: 66%; }
+.ladder li:nth-child(10) { --w: 71%; }
+.ladder li:nth-child(11) { --w: 75%; }
+.ladder li:nth-child(12) { --w: 79%; }
+.ladder li:nth-child(13) { --w: 84%; }
 
 .callout {
   margin-top: 44px;

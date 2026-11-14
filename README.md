@@ -106,9 +106,20 @@ sources (score formula in `GameCore/AnswerMatcher.swift`, tier colours in
 `App/Features/Setup/SetupView.swift`).
 
 Numbers to re-check against the release build before publishing:
-4,105 questions per language, 24 themes, Movies 756 / Comics 64, the Cyrano
+4,577 questions per language, 24 themes, Movies 770 / Comics 86, the Cyrano
 example in `#rarity` (answers and rarities), the settings (1/3/5/7/9 rounds,
 10–60 s), iOS 17+, and the credits list.
+
+The score rule shown in `#rarity` (text, tier ranges, `script.js` calculator and the
+ladder widths in `styles.css`) follows the app's rule of 14 November 2026:
+`10 × rarity × (1.15 − 0.20 × elapsed / duration)`. The screenshots in `screens/`
+were taken before that change and still show the older points: retake them before
+the release.
+
+`defi/` is the page behind the link shared from the daily challenge. It opens the app
+through `rarqio://defi`. For the link to open the app directly (universal link), the
+root site of the account must serve `/.well-known/apple-app-site-association`; the
+content to publish is kept in `well-known-for-root-site/`.
 
 ## Before publishing
 

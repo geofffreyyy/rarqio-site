@@ -162,8 +162,8 @@
             <li>
               <span class="step-num" aria-hidden="true">3</span>
               <h3><span lang="en">Least obvious wins</span><span lang="fr">Le moins évident gagne</span></h3>
-              <p lang="en">Every accepted answer has a rarity. The rarer it is, the more it scores: up to ten times the most obvious one. The later you answer, the fewer points: at the last second, half are left.</p>
-              <p lang="fr">Chaque réponse acceptée a une rareté. Plus elle est rare, plus elle rapporte&nbsp;: jusqu’à dix fois la réponse la plus évidente. Plus vous répondez tard, moins vous marquez&nbsp;: à la dernière seconde, il reste la moitié des points.</p>
+              <p lang="en">Every accepted answer has a rarity. The rarer it is, the more it scores: up to ten times the most obvious one. Speed is only a bonus: a little more for a quick answer, a little less for a late one.</p>
+              <p lang="fr">Chaque réponse acceptée a une rareté. Plus elle est rare, plus elle rapporte&nbsp;: jusqu’à dix fois la réponse la plus évidente. La rapidité n’est qu’un bonus&nbsp;: un peu plus pour une réponse rapide, un peu moins pour une réponse tardive.</p>
             </li>
           </ol>
           <p class="after-steps" lang="en">Then everyone’s answers appear with their rarity and points. Online, the next round starts by itself after four seconds; in solo, you move on at your own pace.</p>
@@ -178,8 +178,8 @@
         <header class="section-head">
           <p class="eyebrow"><span lang="en">Rarity</span><span lang="fr">La rareté</span></p>
           <h2 id="rarity-title"><span lang="en">Five tiers, from Classic to Exceptional.</span><span lang="fr">Cinq paliers, de Classique à Singulière.</span></h2>
-          <p class="section-lede" lang="en">In each question, the answers are ranked on a scale from 0 to 100, from the most obvious to the most obscure. Rarity sets the base score; answering late lowers it, never below half.</p>
-          <p class="section-lede" lang="fr">Dans chaque question, les réponses sont classées sur une échelle de 0 à 100, de la plus évidente à la plus pointue. La rareté fixe la base des points&nbsp;; répondre tard la réduit, jamais sous la moitié.</p>
+          <p class="section-lede" lang="en">In each question, the answers are ranked on a scale from 0 to 100, from the most obvious to the most obscure. Rarity sets the points; speed only adds a bonus, or takes a little away.</p>
+          <p class="section-lede" lang="fr">Dans chaque question, les réponses sont classées sur une échelle de 0 à 100, de la plus évidente à la plus pointue. La rareté fixe les points&nbsp;; la rapidité n’ajoute qu’un bonus, ou en retire un peu.</p>
         </header>
 
         <div class="section-body">
@@ -189,43 +189,43 @@
               <span class="stamp"><span lang="en">Classic</span><span lang="fr">Classique</span></span>
               <span class="tier-bar" aria-hidden="true"></span>
               <span class="tier-range"><span lang="en">Rarity under 20</span><span lang="fr">Rareté sous 20</span></span>
-              <span class="tier-pts"><span lang="en">up to 126 pts</span><span lang="fr">jusqu’à 126&nbsp;pts</span></span>
+              <span class="tier-pts">100–199&nbsp;pts</span>
             </li>
             <li class="tier t-unexpected">
               <span class="stamp"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span>
               <span class="tier-bar" aria-hidden="true"></span>
               <span class="tier-range"><span lang="en">Rarity 20–39</span><span lang="fr">Rareté 20–39</span></span>
-              <span class="tier-pts">129–210&nbsp;pts</span>
+              <span class="tier-pts">200–399&nbsp;pts</span>
             </li>
             <li class="tier t-rare">
               <span class="stamp">Rare</span>
               <span class="tier-bar" aria-hidden="true"></span>
               <span class="tier-range"><span lang="en">Rarity 40–59</span><span lang="fr">Rareté 40–59</span></span>
-              <span class="tier-pts">215–350&nbsp;pts</span>
+              <span class="tier-pts">400–599&nbsp;pts</span>
             </li>
             <li class="tier t-very">
               <span class="stamp"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span>
               <span class="tier-bar" aria-hidden="true"></span>
               <span class="tier-range"><span lang="en">Rarity 60–79</span><span lang="fr">Rareté 60–79</span></span>
-              <span class="tier-pts">359–584&nbsp;pts</span>
+              <span class="tier-pts">600–799&nbsp;pts</span>
             </li>
             <li class="tier t-exceptional">
               <span class="stamp"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span>
               <span class="tier-bar" aria-hidden="true"></span>
               <span class="tier-range"><span lang="en">Rarity 80 and up</span><span lang="fr">Rareté 80 et plus</span></span>
-              <span class="tier-pts"><span lang="en">599–1,000 pts</span><span lang="fr">599–1&#8239;000&nbsp;pts</span></span>
+              <span class="tier-pts"><span lang="en">800–1,000 pts</span><span lang="fr">800–1&#8239;000&nbsp;pts</span></span>
             </li>
           </ol>
-          <p class="note-small" lang="en">Base points, for an answer given at once.</p>
-          <p class="note-small" lang="fr">Points de base, pour une réponse donnée tout de suite.</p>
+          <p class="note-small" lang="en">Points for the answer itself, before the speed bonus.</p>
+          <p class="note-small" lang="fr">Points de la réponse elle-même, avant le bonus de rapidité.</p>
 
           <div class="formula-block">
             <h3><span lang="en">The formula</span><span lang="fr">La formule</span></h3>
             <!-- Each <span> is kept on one line; the formula may only wrap between them. -->
-            <p class="formula" lang="en"><code><span>points =</span> <span>100 × 10<sup>(rarity − 10) / 90</sup></span> <span>× (1 − 0.5 ×</span> <span>time elapsed / duration)</span></code></p>
-            <p class="formula" lang="fr"><code><span>points =</span> <span>100 × 10<sup>(rareté − 10) / 90</sup></span> <span>× (1 − 0,5 ×</span> <span>temps écoulé / durée)</span></code></p>
-            <p lang="en">Rounded, at most 1,000 points per answer. About 100 for the reflex answer; every +30 of rarity roughly doubles the base, up to 1,000 for the most obscure. Answer at once and you keep the whole base; at the deadline, half is left. Two players with the same answer: the faster one scores more.</p>
-            <p lang="fr">Arrondi, au plus 1&#8239;000 points par réponse. Environ 100 pour la réponse réflexe&nbsp;; chaque +30 de rareté double à peu près la base, jusqu’à 1&#8239;000 pour la plus pointue. Une réponse immédiate garde toute la base&nbsp;; à la fin du chrono, il en reste la moitié. Deux joueurs ont la même réponse&nbsp;: le plus rapide marque plus.</p>
+            <p class="formula" lang="en"><code><span>points =</span> <span>10 × rarity</span> <span>× (1.15 − 0.20 ×</span> <span>time elapsed / duration)</span></code></p>
+            <p class="formula" lang="fr"><code><span>points =</span> <span>10 × rareté</span> <span>× (1,15 − 0,20 ×</span> <span>temps écoulé / durée)</span></code></p>
+            <p lang="en">Rounded, at most 1,150 points per answer. The answer itself is worth 10 points per degree of rarity: 100 for the reflex answer, up to 1,000 for the most obscure. Speed is only a bonus: 15% more for an instant answer, sliding down to 5% less at the deadline. Two players with the same answer: the faster one scores more.</p>
+            <p lang="fr">Arrondi, au plus 1&#8239;150 points par réponse. La réponse elle-même vaut 10 points par degré de rareté&nbsp;: 100 pour la réponse réflexe, jusqu’à 1&#8239;000 pour la plus pointue. La rapidité n’est qu’un bonus&nbsp;: 15&nbsp;% de plus pour une réponse immédiate, jusqu’à 5&nbsp;% de moins à la fin du chrono. Deux joueurs ont la même réponse&nbsp;: le plus rapide marque plus.</p>
 
             <!-- Shown only with JavaScript; the formula above stands on its own without it. -->
             <div class="calc needs-js" id="calc">
@@ -242,7 +242,7 @@
               </div>
               <p class="calc-result" aria-live="polite">
                 <span class="chip" id="calc-tier"></span>
-                <span class="calc-points"><strong id="calc-points">198</strong> <span lang="en">points</span><span lang="fr">points</span></span>
+                <span class="calc-points"><strong id="calc-points">483</strong> <span lang="en">points</span><span lang="fr">points</span></span>
               </p>
             </div>
           </div>
@@ -251,22 +251,22 @@
             <figcaption>
               <span class="ladder-kicker"><span lang="en">Example</span><span lang="fr">Exemple</span></span>
               <span class="ladder-q"><span lang="en">Name a character from Edmond Rostand’s Cyrano de Bergerac.</span><span lang="fr">Cite un personnage de Cyrano de Bergerac d’Edmond Rostand.</span></span>
-              <span class="ladder-note"><span lang="en">All 13 accepted answers, from the most obvious to the most obscure, with their base points. Bars run to 1,000, the highest possible base.</span><span lang="fr">Les 13 réponses acceptées, de la plus évidente à la plus pointue, avec leurs points de base. Les barres vont jusqu’à 1&#8239;000, la base maximale.</span></span>
+              <span class="ladder-note"><span lang="en">All 13 accepted answers, from the most obvious to the most obscure, with the points of the answer itself. Bars run to 1,000, the most an answer is worth before the speed bonus.</span><span lang="fr">Les 13 réponses acceptées, de la plus évidente à la plus pointue, avec les points de la réponse elle-même. Les barres vont jusqu’à 1&#8239;000, le maximum d’une réponse avant le bonus de rapidité.</span></span>
             </figcaption>
             <ol class="ladder">
               <li class="t-classic"><span class="l-name">Cyrano de Bergerac</span><span class="l-tier"><span lang="en">Classic</span><span lang="fr">Classique</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">100</span></li>
-              <li class="t-unexpected"><span class="l-name">Roxane</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">139</span></li>
-              <li class="t-unexpected"><span class="l-name">Christian de Neuvillette</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">176</span></li>
-              <li class="t-unexpected"><span class="l-name">Comte de Guiche</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">210</span></li>
-              <li class="t-rare"><span class="l-name">Le Bret</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">245</span></li>
-              <li class="t-rare"><span class="l-name">Ragueneau</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">285</span></li>
-              <li class="t-rare"><span class="l-name">Lise</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">324</span></li>
-              <li class="t-very"><span class="l-name">Carbon de Castel-Jaloux</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">369</span></li>
-              <li class="t-very"><span class="l-name">Montfleury</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">419</span></li>
-              <li class="t-very"><span class="l-name">Vicomte de Valvert</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">476</span></li>
-              <li class="t-very"><span class="l-name"><span lang="en">The Duenna</span><span lang="fr">La Duègne</span></span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">527</span></li>
-              <li class="t-very"><span class="l-name">Lignière</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">584</span></li>
-              <li class="t-exceptional"><span class="l-name"><span lang="en">Mother Marguerite</span><span lang="fr">Mère Marguerite</span></span><span class="l-tier"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">664</span></li>
+              <li class="t-unexpected"><span class="l-name">Roxane</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">230</span></li>
+              <li class="t-unexpected"><span class="l-name">Christian de Neuvillette</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">320</span></li>
+              <li class="t-unexpected"><span class="l-name">Comte de Guiche</span><span class="l-tier"><span lang="en">Unexpected</span><span lang="fr">Inattendue</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">390</span></li>
+              <li class="t-rare"><span class="l-name">Le Bret</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">450</span></li>
+              <li class="t-rare"><span class="l-name">Ragueneau</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">510</span></li>
+              <li class="t-rare"><span class="l-name">Lise</span><span class="l-tier">Rare</span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">560</span></li>
+              <li class="t-very"><span class="l-name">Carbon de Castel-Jaloux</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">610</span></li>
+              <li class="t-very"><span class="l-name">Montfleury</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">660</span></li>
+              <li class="t-very"><span class="l-name">Vicomte de Valvert</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">710</span></li>
+              <li class="t-very"><span class="l-name"><span lang="en">The Duenna</span><span lang="fr">La Duègne</span></span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">750</span></li>
+              <li class="t-very"><span class="l-name">Lignière</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">790</span></li>
+              <li class="t-exceptional"><span class="l-name"><span lang="en">Mother Marguerite</span><span lang="fr">Mère Marguerite</span></span><span class="l-tier"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">840</span></li>
             </ol>
           </figure>
 
@@ -299,8 +299,8 @@
             </div>
             <div class="mode">
               <dt><span lang="en">Friends</span><span lang="fr">Amis</span></dt>
-              <dd lang="en">A private room for 2 to 8 players. Invite your Game Center friends, or create a 6-character code and share it in any app. Every player for themselves, or teams of any size, scored as an average per player or as a team total. The host can start a rematch with the same players.</dd>
-              <dd lang="fr">Un salon privé de 2 à 8 joueurs. Invitez vos amis Game Center, ou créez un code à 6 caractères à partager sur n’importe quelle app. Chacun pour soi, ou en équipes de toutes tailles, au score moyen par joueur ou au total de l’équipe. L’hôte peut lancer une revanche avec les mêmes joueurs.</dd>
+              <dd lang="en">A private room for 2 to 8 players. Invite your Game Center friends, or create a 6-character code and share it in any app. Every player for themselves, or teams of any size, scored as an average per player or as a team total. The host can start a rematch with the same players, and any player can ask for one.</dd>
+              <dd lang="fr">Un salon privé de 2 à 8 joueurs. Invitez vos amis Game Center, ou créez un code à 6 caractères à partager sur n’importe quelle app. Chacun pour soi, ou en équipes de toutes tailles, au score moyen par joueur ou au total de l’équipe. L’hôte peut lancer une revanche avec les mêmes joueurs, et chaque joueur peut en demander une.</dd>
             </div>
           </dl>
 
@@ -405,7 +405,7 @@
       <div class="wrap split">
         <header class="section-head">
           <p class="eyebrow"><span lang="en">The questions</span><span lang="fr">Les questions</span></p>
-          <h2 id="questions-title"><span lang="en">4,105 questions in each language.</span><span lang="fr">4&#8239;105 questions dans chaque langue.</span></h2>
+          <h2 id="questions-title"><span lang="en">4,577 questions in each language.</span><span lang="fr">4&#8239;577 questions dans chaque langue.</span></h2>
           <p class="section-lede" lang="en">The French and English banks hold the same questions, translated. They don’t add up to more.</p>
           <p class="section-lede" lang="fr">Les banques française et anglaise contiennent les mêmes questions, traduites. Elles ne s’additionnent pas.</p>
         </header>
@@ -440,8 +440,8 @@
           </ul>
 
           <ul class="honest">
-            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 756 questions; Comics has 64.</li>
-            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 756 questions, la BD 64.</li>
+            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 770 questions; Comics has 86.</li>
+            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 770 questions, la BD 86.</li>
             <li lang="en"><strong>Not exhaustive.</strong> The lists come from public references and are still under editorial review. A word that isn’t listed is “not listed”, not necessarily wrong, and you can report it.</li>
             <li lang="fr"><strong>Pas exhaustif.</strong> Les listes viennent de références publiques et restent en revue éditoriale. Un mot absent est «&nbsp;non référencé&nbsp;», pas forcément faux, et vous pouvez le signaler.</li>
             <li lang="en"><strong>Some lists are snapshots.</strong> They say so in the question: film data covers releases before 2011, for instance, and F1 standings run through 2024.</li>

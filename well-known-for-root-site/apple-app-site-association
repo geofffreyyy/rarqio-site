@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["BDS2QJ2F8T.com.geof973.rarqio"],
+        "components": [
+          { "/": "/rarqio-site/defi", "comment": "Daily challenge link shared from the app" },
+          { "/": "/rarqio-site/defi/*", "comment": "Daily challenge link shared from the app" }
+        ]
+      }
+    ]
+  }
+}
