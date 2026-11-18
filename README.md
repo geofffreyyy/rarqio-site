@@ -133,3 +133,13 @@ root site of the account must list Rarqio in `/.well-known/apple-app-site-associ
 5. `robots.txt` only takes effect at a domain root; on a project site
    (`…github.io/rarqio-site/`) crawlers read `geofffreyyy.github.io/robots.txt`
    instead. It is here for a custom domain.
+
+## Invitation pages (18 November 2026, not published yet)
+
+`salon/?c=CODE` (French preview) and `room/?c=CODE` (English preview) are the pages behind
+a room link shared from the app. `room.js` reads the code, shows it, and its button opens
+the app through `rarqio://salon?c=CODE`; without the app, the page leads to the download.
+`daily/` is the English twin of `defi/`. The link previews (`assets/invite-*.png`,
+`assets/daily-*.png`, 1200×630) are drawn by `tools/invite-card.swift`.
+The four paths must also be listed in the root site's association file: see
+`well-known-for-root-site/`.

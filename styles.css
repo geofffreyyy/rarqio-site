@@ -1568,3 +1568,145 @@ code {
     color: #000;
   }
 }
+
+/* ---------- Invitation pages (salon/, room/) ---------- */
+/* room.js sets data-room="code" when the address carries a room code. */
+html[data-room="code"] .invite-without-code,
+html:not([data-room="code"]) .invite-with-code {
+  display: none;
+}
+
+.invite {
+  border-top: 0;
+  padding-block: clamp(28px, 6vw, 72px);
+}
+
+.invite .wrap {
+  max-width: 560px;
+}
+
+.invite .brand {
+  margin-bottom: clamp(28px, 6vw, 48px);
+}
+
+.invite h1 {
+  font-size: clamp(1.75rem, 7vw, 2.5rem);
+  line-height: 1.1;
+  margin-bottom: 26px;
+  text-wrap: balance;
+}
+
+.invite-without-code p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+/* Six tiles, three sun and three sky, tilted in turn as in the app. */
+.code-tiles {
+  display: flex;
+  gap: clamp(4px, 1.6vw, 8px);
+  margin-bottom: 26px;
+}
+
+.code-tiles span {
+  flex: 1 1 0;
+  max-width: 76px;
+  aspect-ratio: 52 / 62;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--sun);
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 8vw, 2.4rem);
+  font-weight: 900;
+  font-stretch: expanded;
+  transform: rotate(-2deg);
+}
+
+.code-tiles span:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.code-tiles span:nth-child(n + 4) {
+  background: #4cc9f0;
+}
+
+.code-tiles span:nth-child(4) {
+  margin-left: clamp(6px, 2vw, 12px);
+}
+
+.invite-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.invite-actions .btn-primary {
+  min-height: 60px;
+  margin: 0 0 5px;
+  font-size: 1.0625rem;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--raised);
+  box-shadow: 0 3px 0 #17182b;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-secondary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #17182b;
+}
+
+.btn-secondary .copy-done,
+.btn-secondary.copied .copy-idle {
+  display: none;
+}
+
+.btn-secondary.copied .copy-done {
+  display: inline;
+  color: var(--mint);
+}
+
+.copy-buffer {
+  position: fixed;
+  top: 0;
+  left: -9999px;
+}
+
+.invite-help {
+  margin-top: clamp(32px, 7vw, 56px);
+}
+
+.invite-help h2 {
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+}
+
+.invite-help ol {
+  margin: 0 0 16px;
+  padding-left: 1.4em;
+  list-style: decimal;
+  color: var(--muted);
+}
+
+.invite-help li::marker {
+  color: var(--lime);
+  font-weight: 700;
+}
+
+.invite-help li + li {
+  margin-top: 8px;
+}

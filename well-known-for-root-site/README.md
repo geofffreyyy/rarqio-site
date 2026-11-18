@@ -1,4 +1,4 @@
-# Universal link for the daily challenge
+# Universal links: daily challenge and room invitations
 
 Apple only reads the association file at the root of the domain:
 `https://geofffreyyy.github.io/.well-known/apple-app-site-association`.
@@ -17,3 +17,8 @@ the app only from a build installed after the file is online.
 
 Until then the shared link opens the `defi/` page in the browser, and its button
 opens the app through `rarqio://defi`.
+
+Since 18 November 2026 the Rarqio entry also lists `daily`, `salon` and `room` (room
+invitation links). Apple serves the file to iPhones through its own cache, which can lag
+some hours behind a change; meanwhile a room link opens the web page and its button opens
+the app.

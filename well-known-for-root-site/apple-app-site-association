@@ -8,7 +8,7 @@
       },
       {
         "appID": "BDS2QJ2F8T.com.geof973.rarqio",
-        "paths": ["/rarqio-site/defi", "/rarqio-site/defi/*"]
+        "paths": ["/rarqio-site/defi", "/rarqio-site/defi/*", "/rarqio-site/daily", "/rarqio-site/daily/*", "/rarqio-site/salon", "/rarqio-site/salon/*", "/rarqio-site/room", "/rarqio-site/room/*"]
       }
     ]
   }
