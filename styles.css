@@ -1710,3 +1710,237 @@ html:not([data-room="code"]) .invite-with-code {
 .invite-help li + li {
   margin-top: 8px;
 }
+
+/* ---------- Film ----------
+   The launch film, behind its poster until someone asks for it (see script.js).
+   The frame takes the shape of the cut that will play: 16:9, or 9:16 on an
+   upright screen, and never stands taller than the window. */
+.hero-film {
+  margin: 0;
+}
+
+/* The note takes its own line, under the status and the film link. */
+.status-note {
+  flex-basis: 100%;
+}
+
+/* A laptop window is short: the whole opening (title to the three facts) stays
+   in view. */
+@media (min-width: 960px) and (max-height: 800px) {
+  .hero {
+    padding-top: 56px;
+  }
+}
+
+.film-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.film-link:hover {
+  color: var(--lime);
+}
+
+.film-link-disc {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 36px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 3px 0 var(--lime-edge);
+  color: var(--ink);
+}
+
+.film-link-disc svg {
+  margin-left: 2px;
+}
+
+.film-head {
+  margin-inline: auto;
+  max-width: 44em;
+  text-align: center;
+}
+
+.film-head .section-lede {
+  margin-inline: auto;
+}
+
+.film-frame {
+  position: relative;
+  margin: clamp(32px, 5vw, 56px) auto 0;
+  width: 100%;
+  width: min(100%, calc((100svh - 150px) * 16 / 9));
+  min-width: min(100%, 560px);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #000;
+  box-shadow:
+    0 0 0 1px var(--line-strong),
+    0 60px 120px -50px rgba(0, 0, 0, 0.9),
+    0 0 170px -50px rgba(200, 240, 49, 0.32);
+}
+
+.film-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+
+.film-cover {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.5s ease;
+}
+
+.film-cover picture,
+.film-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.film-cover img {
+  object-fit: cover;
+}
+
+.film-frame[data-state="playing"] .film-cover {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.film-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 16px 8%;
+  border: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(15, 16, 32, 0.5));
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.film-play:focus-visible {
+  outline: none;
+}
+
+.film-play-disc {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: clamp(58px, 6.2vw, 78px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--ink);
+  box-shadow: 0 6px 0 var(--lime-edge), 0 22px 50px -14px rgba(200, 240, 49, 0.7);
+  transition: transform 0.3s cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.film-play-disc svg {
+  width: 42%;
+  height: auto;
+  margin-left: 4px;
+}
+
+.film-play:hover .film-play-disc {
+  transform: scale(1.07);
+}
+
+.film-play:focus-visible .film-play-disc {
+  outline: 3px solid var(--text);
+  outline-offset: 4px;
+}
+
+.film-play-text {
+  margin-left: 14px;
+  padding: 10px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(15, 16, 32, 0.66);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-size: clamp(0.95rem, 1.3vw, 1.06rem);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.film-time {
+  margin-left: 8px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.film-when-ended {
+  display: none;
+}
+
+.film-frame[data-state="ended"] .film-when-idle {
+  display: none;
+}
+
+.film-frame[data-state="ended"] .film-when-ended {
+  display: inline;
+}
+
+.film-note {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .film-play-disc::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid rgba(200, 240, 49, 0.55);
+    border-radius: 50%;
+    animation: film-halo 2.6s ease-out infinite;
+  }
+}
+
+@keyframes film-halo {
+  from { transform: scale(1); opacity: 0.9; }
+  to { transform: scale(1.7); opacity: 0; }
+}
+
+@media (orientation: portrait) {
+  .film-frame {
+    aspect-ratio: 9 / 16;
+    width: min(100%, calc((100svh - 130px) * 9 / 16));
+    min-width: min(100%, 300px);
+  }
+
+  .film-play {
+    padding-bottom: 12%;
+  }
+}
+
+@media (max-width: 620px) {
+  .film-play-text {
+    margin-left: 10px;
+    padding: 8px 14px;
+  }
+}
+
+@media print {
+  .film-section,
+  .hero-film {
+    display: none;
+  }
+}

@@ -6,8 +6,10 @@ no cookies, no analytics, no third-party requests (system fonts, everything
 self-hosted).
 
 **Status:** live on GitHub Pages at <https://geofffreyyy.github.io/rarqio-site/>,
-published from `main` (root). The app itself is still in development, so the
-page says "Coming soon to the App Store" and has no App Store link yet.
+published from `main` (root). Version 1.0 of the app was sent to Apple on
+18 November 2026 and is waiting for review, so the page says "Coming soon to the
+App Store" and has no App Store link yet. The day the app is out, run
+`python3 tools/launch.py <App Store address>` (see "Before publishing").
 
 ## Address
 
@@ -39,19 +41,23 @@ only resolve on GitHub Pages).
 
 ## Files
 
-- `index.html` – the whole page: hero, sample questions, `#how`, `#rarity`,
+- `index.html` – the whole page: hero, sample questions, `#film`, `#how`, `#rarity`,
   `#modes`, `#after`, `#questions`, `#profile`, `#faq`, `#support`, `#privacy`,
   `#credits`
 - `styles.css` – all styles; the app's colours are CSS variables at the top
 - `lang.js` – picks the language before first paint (`?lang=` → saved choice →
   browser language); loaded synchronously in `<head>`
-- `script.js` – FR/EN buttons (remembers the choice in `localStorage`) and the
-  score calculator in `#rarity`
+- `script.js` – FR/EN buttons (remembers the choice in `localStorage`), the film
+  player in `#film` and the score calculator in `#rarity`
+- `films/` – the launch film: `<fr|en>-<landscape|portrait>.mp4`, their posters
+  `<fr|en>-poster-<landscape|portrait>.jpg` and the captions `<fr|en>.vtt`
 - `404.html` – self-contained "page not found", both languages
 - `assets/` – icon sizes made from the app icon with `sips`
   (`favicon-32/64`, `apple-touch-icon` 180, `icon-96/192/512`)
 - `screens/` – simulator screenshots, 900 px wide, WebP with JPEG fallback,
   `<screen>-<fr|en>.<webp|jpg>`
+- `tools/launch.py` – the launch-day switch from "Coming soon" to the App Store
+  link; `tools/invite-card.swift` draws the link preview cards
 - `robots.txt`, `.nojekyll`
 
 ## Editing text (French + English)
@@ -81,7 +87,8 @@ inline style). Keep it that way:
 - no `<script>` or `<style>` blocks and no `style="…"` attributes in
   `index.html`; put code in `script.js` / `styles.css` (the ladder bar widths in
   `#rarity` are `nth-child` rules in `styles.css` for that reason)
-- no external URLs for scripts, styles, fonts or images
+- no external URLs for scripts, styles, fonts, images or video
+- `media-src 'self'` is there for the film in `films/` only; nothing else plays
 
 `404.html` has one inline `<style>`, allowed by its SHA-256 hash in that page's
 CSP. If you edit that style, recompute the hash and paste it into the CSP:
@@ -105,10 +112,22 @@ sources (score formula in `GameCore/AnswerMatcher.swift`, tier colours in
 `App/DesignSystem/ArcadeComponents.swift`, setup options in
 `App/Features/Setup/SetupView.swift`).
 
-Numbers to re-check against the release build before publishing:
-4,577 questions per language, 24 themes, Movies 770 / Comics 86, the Cyrano
-example in `#rarity` (answers and rarities), the settings (1/3/5/7/9 rounds,
-10–60 s), iOS 17+, and the credits list.
+Numbers checked against version 1.0 (build 9) on 18 November 2026:
+5,004 questions per language, 24 themes, Movies 788 / Comics 104, the Cyrano
+example in `#rarity` (13 answers and their rarities), the five tiers (Classic,
+Unexpected, Rare, Very rare, Legendary), the settings (3/5/10/20 questions solo,
+1/3/5/7/9 rounds online, 10–60 s), the daily challenge (5 questions, 20 s each,
+08:00 Paris time). Still to re-check before a release: iOS 17+ and the credits list.
+
+## The film
+
+`#film` plays the launch film made in the films workspace
+(`~/Developer/2g-business-films`, film key `rarqio`; `outils/web.py rarqio` exports
+the cuts, posters and captions, copied here into `films/` under the same names as
+on the 2G Business site). Nothing is fetched before the play button is pressed: the
+`<video>` has no source until then, and `script.js` picks the cut from the page
+language and the screen's orientation at that moment. The durations shown beside
+the play button are written in `index.html`; update them if the film is re-cut.
 
 The score rule shown in `#rarity` (text, tier ranges, `script.js` calculator and the
 ladder widths in `styles.css`) follows the app's rule of 14 November 2026:
@@ -125,8 +144,12 @@ root site of the account must list Rarqio in `/.well-known/apple-app-site-associ
 ## Before publishing
 
 1. Confirm the address above (repository name, domain).
-2. Replace the "Coming soon" badges with the App Store link, and add the
-   Smart App Banner (see the `TODO` comment in `<head>`).
+2. Replace the "Coming soon" badges with the App Store link and add the Smart
+   App Banner: `python3 tools/launch.py https://apps.apple.com/app/id6834092888`
+   does both, with the status note, the status band, the FAQ entry and the
+   link-preview descriptions. It checks every replacement first and changes
+   nothing if the page no longer matches. Open the address before running it:
+   it must show the app's page.
 3. Update the privacy policy's effective date and check it against the final
    app (Game Center use, local data, App Privacy answers in App Store Connect).
 4. Re-check the numbers listed above and refresh the screenshots if the UI changed.

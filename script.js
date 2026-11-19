@@ -1,8 +1,9 @@
-/* Rarqio site – FR/EN toggle and the score calculator.
+/* Rarqio site – FR/EN toggle, the score calculator and the film player.
    The language is picked before first paint by lang.js; this file wires the
-   buttons, remembers the choice, swaps a few attributes and runs the
-   calculator in the #rarity section. No network requests, no storage other
-   than the language choice. */
+   buttons, remembers the choice, swaps a few attributes, runs the calculator
+   in the #rarity section and plays the film in the language shown. No network
+   requests other than the film once it is asked for, no storage other than
+   the language choice. */
 (function () {
   'use strict';
 
@@ -43,7 +44,7 @@
     }
 
     var TIERS = [
-      { min: 80, cls: 't-exceptional', en: 'Exceptional', fr: 'Singulière' },
+      { min: 80, cls: 't-exceptional', en: 'Legendary', fr: 'Légendaire' },
       { min: 60, cls: 't-very', en: 'Very rare', fr: 'Très rare' },
       { min: 40, cls: 't-rare', en: 'Rare', fr: 'Rare' },
       { min: 20, cls: 't-unexpected', en: 'Unexpected', fr: 'Inattendue' },
@@ -99,6 +100,97 @@
     return { render: render };
   })();
 
+  // ---------- The film ----------
+  // Never autoplayed, and nothing is fetched before the click: the video has no
+  // source until then. The orientation is read at the click, so a phone turned
+  // upright before pressing play gets the upright cut.
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var film = (function () {
+    var frame = document.getElementById('film-frame');
+    var video = document.getElementById('film-video');
+    var cover = document.getElementById('film-cover');
+    var button = document.getElementById('film-play');
+    if (!frame || !video || !cover || !button) {
+      return { start: function () {}, setLanguage: function () {}, frame: null };
+    }
+    var portrait = window.matchMedia('(orientation: portrait)');
+    var filmLang = 'en';
+    var loaded = null;
+
+    function setState(state) {
+      frame.setAttribute('data-state', state);
+      var playing = state === 'playing';
+      video.controls = playing;
+      video.tabIndex = playing ? 0 : -1;
+      video.setAttribute('aria-hidden', String(!playing));
+      cover.inert = playing;
+      button.tabIndex = playing ? -1 : 0;
+    }
+
+    function dropTracks() {
+      var tracks = video.querySelectorAll('track');
+      for (var i = 0; i < tracks.length; i++) tracks[i].remove();
+    }
+
+    function start() {
+      var key = filmLang + '-' + (portrait.matches ? 'portrait' : 'landscape');
+      if (loaded !== key) {
+        loaded = key;
+        dropTracks();
+        video.src = 'films/' + key + '.mp4';
+        var track = document.createElement('track');
+        track.kind = 'captions';
+        track.src = 'films/' + filmLang + '.vtt';
+        track.srclang = filmLang;
+        track.label = filmLang === 'fr' ? 'Français' : 'English';
+        video.appendChild(track);
+      } else if (video.ended) {
+        video.currentTime = 0;
+      }
+      setState('playing');
+      // Called inside the click, which is what lets it play with sound.
+      var attempt = video.play();
+      if (attempt && attempt.catch) attempt.catch(function () { setState('idle'); });
+      requestAnimationFrame(function () { video.focus({ preventScroll: true }); });
+    }
+
+    video.addEventListener('ended', function () { setState('ended'); });
+    video.addEventListener('play', function () {
+      if (frame.getAttribute('data-state') !== 'playing') setState('playing');
+    });
+    button.addEventListener('click', start);
+
+    return {
+      frame: frame,
+      start: start,
+      setLanguage: function (lang) {
+        var next = lang === 'fr' ? 'fr' : 'en';
+        if (next === filmLang) return;
+        filmLang = next;
+        if (loaded) {
+          // A film in the other language was loaded: drop it, back to the poster.
+          video.pause();
+          video.removeAttribute('src');
+          dropTracks();
+          video.load();
+          loaded = null;
+          setState('idle');
+        }
+      }
+    };
+  })();
+
+  // "Watch the film" in the hero: start it, then bring it into view.
+  var playLinks = document.querySelectorAll('[data-play-film]');
+  for (var p = 0; p < playLinks.length; p++) {
+    playLinks[p].addEventListener('click', function (event) {
+      if (!film.frame) return;
+      event.preventDefault();
+      film.start();
+      film.frame.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'center' });
+    });
+  }
+
   // ---------- Language ----------
   var buttons = document.querySelectorAll('[data-set-lang]');
 
@@ -109,6 +201,7 @@
     swaps.forEach(function (s) {
       s.el.setAttribute(s.attr, s[lang]);
     });
+    film.setLanguage(lang);
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].setAttribute('aria-pressed', String(buttons[i].getAttribute('data-set-lang') === lang));
     }

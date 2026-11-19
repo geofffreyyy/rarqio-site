@@ -2,7 +2,7 @@
 <html lang="en" data-lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'none'; media-src 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Sets data-lang before first paint (?lang= > saved choice > browser language). -->
   <script src="lang.js"></script>
@@ -48,6 +48,7 @@
         <span>Rarqio</span>
       </a>
       <nav class="nav-links" aria-label="Sections" data-fr-aria-label="Sections">
+        <a class="nav-optional" href="#film">Film</a>
         <a href="#how"><span lang="en">How it plays</span><span lang="fr">Le principe</span></a>
         <a class="nav-optional" href="#rarity"><span lang="en">Rarity</span><span lang="fr">Rareté</span></a>
         <a class="nav-optional" href="#modes">Modes</a>
@@ -77,7 +78,13 @@
 
           <div class="status">
             <p class="soon"><span lang="en">Coming soon to the App Store</span><span lang="fr">Bientôt sur l’App Store</span></p>
-            <p class="status-note"><span lang="en">In development. iOS 17 or later, iPhone and iPad, in French and English.</span><span lang="fr">En développement. iOS&nbsp;17 ou ultérieur, iPhone et iPad, en français et en anglais.</span></p>
+            <p class="hero-film needs-js">
+              <a class="film-link" href="#film" data-play-film>
+                <span class="film-link-disc" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" focusable="false"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg></span>
+                <span lang="en">Watch the film</span><span lang="fr">Voir le film</span>
+              </a>
+            </p>
+            <p class="status-note"><span lang="en">Version 1.0 is with Apple for review. iOS 17 or later, iPhone and iPad, in French and English.</span><span lang="fr">La version 1.0 est en cours de validation chez Apple. iOS&nbsp;17 ou ultérieur, iPhone et iPad, en français et en anglais.</span></p>
           </div>
 
           <ul class="facts-inline">
@@ -93,11 +100,11 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/reveal-en.webp">
-                  <img src="screens/reveal-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="The reveal: “Rare, +283” for the answer Le Bret, then each player’s answer and points, and the score race.">
+                  <img src="screens/reveal-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="The reveal: “Very rare, +857” for the answer Finger lime, 770 points for the answer and 87 for speed, then each player’s answer and points.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/reveal-fr.webp">
-                  <img src="screens/reveal-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="La révélation : « Très rare, +456 » pour la réponse Panthère nébuleuse, puis la réponse et les points de chaque joueur, et la course des scores.">
+                  <img src="screens/reveal-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="La révélation : « Très rare, +808 » pour la réponse Citron caviar, 770 points pour la réponse et 38 pour la rapidité, puis la réponse et les points de chaque joueur.">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
@@ -108,11 +115,11 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/question-en.webp">
-                  <img src="screens/question-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="A question in progress: “Name a character from Edmond Rostand’s Cyrano de Bergerac.” The answer being typed is “Le Bret”.">
+                  <img src="screens/question-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="A question in progress: “Name a citrus fruit.” The answer being typed is “Finger lime”.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/question-fr.webp">
-                  <img src="screens/question-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Une question en cours : « Cite un club champion de France de football (première division) avant 2025. » La réponse en cours de saisie est « FC Nantes ».">
+                  <img src="screens/question-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Une question en cours : « Cite un agrume. » La réponse en cours de saisie est « Citron caviar ».">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
@@ -134,6 +141,42 @@
           <li><span class="sample-theme"><span lang="en">Myths &amp; legends</span><span lang="fr">Mythes &amp; légendes</span></span><span class="sample-q"><span lang="en">Name a legendary island, city or realm.</span><span lang="fr">Cite une île, une cité ou un royaume légendaire.</span></span></li>
           <li><span class="sample-theme"><span lang="en">Games &amp; toys</span><span lang="fr">Jeux &amp; jouets</span></span><span class="sample-q"><span lang="en">Name a traditional or ancient board game.</span><span lang="fr">Cite un jeu de plateau traditionnel ou antique.</span></span></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- ============ FILM ============ -->
+    <!-- The film files come from the launch-film workspace (outils/web.py): one cut per language and orientation. -->
+    <section class="section film-section" id="film" aria-labelledby="film-title">
+      <div class="wrap">
+        <header class="section-head film-head">
+          <p class="eyebrow"><span lang="en">The film</span><span lang="fr">Le film</span></p>
+          <h2 id="film-title"><span lang="en">Rarqio in under a minute.</span><span lang="fr">Rarqio en moins d’une minute.</span></h2>
+          <p class="section-lede" lang="en">One question, dozens of right answers, and the least obvious one wins: the game, shown on its own screens.</p>
+          <p class="section-lede" lang="fr">Une question, des dizaines de bonnes réponses, et la moins évidente l’emporte&nbsp;: le jeu, montré sur ses propres écrans.</p>
+        </header>
+
+        <div class="film-frame" id="film-frame" data-state="idle">
+          <video class="film-video" id="film-video" playsinline preload="none" tabindex="-1" aria-hidden="true"></video>
+          <div class="film-cover" id="film-cover">
+            <!-- The poster carries words, so each language has its own; the hidden one is never fetched. -->
+            <picture lang="en">
+              <source media="(orientation: portrait)" srcset="films/en-poster-portrait.jpg">
+              <img src="films/en-poster-landscape.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </picture>
+            <picture lang="fr">
+              <source media="(orientation: portrait)" srcset="films/fr-poster-portrait.jpg">
+              <img src="films/fr-poster-landscape.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </picture>
+            <button type="button" class="film-play" id="film-play">
+              <span class="film-play-disc" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" focusable="false"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></svg></span>
+              <span class="film-play-text">
+                <span class="film-when-idle"><span lang="en">Play the film</span><span lang="fr">Lancer le film</span></span><span class="film-when-ended"><span lang="en">Watch again</span><span lang="fr">Revoir le film</span></span><span class="sr-only"><span lang="en">, with sound</span><span lang="fr">, avec le son</span></span>
+                <span class="film-time" aria-hidden="true"><span lang="en">0:37</span><span lang="fr">0:32</span></span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <p class="film-note"><span lang="en">With sound. Captions are available in the player. Every player shown is invented.</span><span lang="fr">Avec le son. Sous-titres disponibles dans le lecteur. Tous les joueurs montrés sont inventés.</span></p>
       </div>
     </section>
 
@@ -177,7 +220,7 @@
       <div class="wrap split">
         <header class="section-head">
           <p class="eyebrow"><span lang="en">Rarity</span><span lang="fr">La rareté</span></p>
-          <h2 id="rarity-title"><span lang="en">Five tiers, from Classic to Exceptional.</span><span lang="fr">Cinq paliers, de Classique à Singulière.</span></h2>
+          <h2 id="rarity-title"><span lang="en">Five tiers, from Classic to Legendary.</span><span lang="fr">Cinq paliers, de Classique à Légendaire.</span></h2>
           <p class="section-lede" lang="en">In each question, the answers are ranked on a scale from 0 to 100, from the most obvious to the most obscure. Rarity sets the points; speed only adds a bonus, or takes a little away.</p>
           <p class="section-lede" lang="fr">Dans chaque question, les réponses sont classées sur une échelle de 0 à 100, de la plus évidente à la plus pointue. La rareté fixe les points&nbsp;; la rapidité n’ajoute qu’un bonus, ou en retire un peu.</p>
         </header>
@@ -210,7 +253,7 @@
               <span class="tier-pts">600–799&nbsp;pts</span>
             </li>
             <li class="tier t-exceptional">
-              <span class="stamp"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span>
+              <span class="stamp"><span lang="en">Legendary</span><span lang="fr">Légendaire</span></span>
               <span class="tier-bar" aria-hidden="true"></span>
               <span class="tier-range"><span lang="en">Rarity 80 and up</span><span lang="fr">Rareté 80 et plus</span></span>
               <span class="tier-pts"><span lang="en">800–1,000 pts</span><span lang="fr">800–1&#8239;000&nbsp;pts</span></span>
@@ -266,7 +309,7 @@
               <li class="t-very"><span class="l-name">Vicomte de Valvert</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">710</span></li>
               <li class="t-very"><span class="l-name"><span lang="en">The Duenna</span><span lang="fr">La Duègne</span></span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">750</span></li>
               <li class="t-very"><span class="l-name">Lignière</span><span class="l-tier"><span lang="en">Very rare</span><span lang="fr">Très rare</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">790</span></li>
-              <li class="t-exceptional"><span class="l-name"><span lang="en">Mother Marguerite</span><span lang="fr">Mère Marguerite</span></span><span class="l-tier"><span lang="en">Exceptional</span><span lang="fr">Singulière</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">840</span></li>
+              <li class="t-exceptional"><span class="l-name"><span lang="en">Mother Marguerite</span><span lang="fr">Mère Marguerite</span></span><span class="l-tier"><span lang="en">Legendary</span><span lang="fr">Légendaire</span></span><span class="l-bar" aria-hidden="true"><span></span></span><span class="l-pts">840</span></li>
             </ol>
           </figure>
 
@@ -284,13 +327,18 @@
       <div class="wrap feature-grid">
         <div class="feature-copy">
           <p class="eyebrow"><span lang="en">Ways to play</span><span lang="fr">Les modes</span></p>
-          <h2 id="modes-title"><span lang="en">Alone, head to head, or up to eight.</span><span lang="fr">Seul, en duel, ou jusqu’à huit.</span></h2>
+          <h2 id="modes-title"><span lang="en">Alone, every day, head to head, or up to eight.</span><span lang="fr">Seul, chaque jour, en duel, ou jusqu’à huit.</span></h2>
 
           <dl class="modes">
             <div class="mode">
               <dt>Solo</dt>
-              <dd lang="en">Quick Game: 5 questions from every theme. Or tap a theme to play it on your own. Stuck? Skip shows the answers. Solo works offline, without Game Center.</dd>
-              <dd lang="fr">Partie rapide&nbsp;: 5 questions, tous les thèmes. Ou touchez un thème pour y jouer seul. Bloqué&nbsp;? «&nbsp;Passer&nbsp;» affiche les réponses. Le solo fonctionne hors ligne, sans Game Center.</dd>
+              <dd lang="en">Your themes, your number of questions, your timer, at your own pace. Stuck? Skip shows the answers. Solo works offline, without Game Center.</dd>
+              <dd lang="fr">Vos thèmes, votre nombre de questions, votre chrono, à votre rythme. Bloqué&nbsp;? «&nbsp;Passer&nbsp;» affiche les réponses. Le solo fonctionne hors ligne, sans Game Center.</dd>
+            </div>
+            <div class="mode">
+              <dt><span lang="en">Daily challenge</span><span lang="fr">Défi du jour</span></dt>
+              <dd lang="en">Five questions a day, the same for everyone, 20 seconds each, one attempt. A new challenge opens every day at 8:00, Paris time, with a world leaderboard and a friends leaderboard on Game Center. A friendly leaderboard, with no referee.</dd>
+              <dd lang="fr">Cinq questions par jour, les mêmes pour tout le monde, 20 secondes chacune, une seule tentative. Un nouveau défi s’ouvre chaque jour à 8&nbsp;h, heure de Paris, avec un classement mondial et un classement entre amis sur Game Center. Un classement amical, sans arbitre.</dd>
             </div>
             <div class="mode">
               <dt>Duel</dt>
@@ -299,19 +347,19 @@
             </div>
             <div class="mode">
               <dt><span lang="en">Friends</span><span lang="fr">Amis</span></dt>
-              <dd lang="en">A private room for 2 to 8 players. Invite your Game Center friends, or create a 6-character code and share it in any app. Every player for themselves, or teams of any size, scored as an average per player or as a team total. The host can start a rematch with the same players, and any player can ask for one.</dd>
-              <dd lang="fr">Un salon privé de 2 à 8 joueurs. Invitez vos amis Game Center, ou créez un code à 6 caractères à partager sur n’importe quelle app. Chacun pour soi, ou en équipes de toutes tailles, au score moyen par joueur ou au total de l’équipe. L’hôte peut lancer une revanche avec les mêmes joueurs, et chaque joueur peut en demander une.</dd>
+              <dd lang="en">A private room for 2 to 8 players. Invite your Game Center friends, or open a room and send its link or its 6-character code in any app. Every player for themselves, or teams of any size, scored as an average per player or as a team total. The host can start a rematch with the same players, and any player can ask for one.</dd>
+              <dd lang="fr">Un salon privé de 2 à 8 joueurs. Invitez vos amis Game Center, ou ouvrez un salon et envoyez son lien ou son code à 6 caractères sur n’importe quelle app. Chacun pour soi, ou en équipes de toutes tailles, au score moyen par joueur ou au total de l’équipe. L’hôte peut lancer une revanche avec les mêmes joueurs, et chaque joueur peut en demander une.</dd>
             </div>
           </dl>
 
           <ul class="settings" aria-label="Game settings" data-fr-aria-label="Réglages de partie">
-            <li><span class="set-label"><span lang="en">Rounds</span><span lang="fr">Manches</span></span><span class="set-value">1 · 3 · 5 · 7 · 9</span></li>
+            <li><span class="set-label"><span lang="en">Questions</span><span lang="fr">Questions</span></span><span class="set-value"><span lang="en">3 to 20 solo · 1 to 9 online</span><span lang="fr">3 à 20 en solo · 1 à 9 en ligne</span></span></li>
             <li><span class="set-label"><span lang="en">Seconds per question</span><span lang="fr">Secondes par question</span></span><span class="set-value"><span lang="en">10 to 60</span><span lang="fr">10 à 60</span></span></li>
             <li><span class="set-label"><span lang="en">Level</span><span lang="fr">Niveau</span></span><span class="set-value"><span lang="en">Easy · Medium · Hard</span><span lang="fr">Facile · Moyen · Difficile</span></span></li>
             <li><span class="set-label"><span lang="en">Themes</span><span lang="fr">Thèmes</span></span><span class="set-value"><span lang="en">one, several or all 24</span><span lang="fr">un, plusieurs ou les 24</span></span></li>
           </ul>
-          <p class="note-small" lang="en">On Easy, everyone finds an answer: the challenge is the one nobody else will say. Medium and Hard are for connoisseurs. Duel and Friends need Game Center, and everyone in a game plays the same app version in the same question language.</p>
-          <p class="note-small" lang="fr">En Facile, tout le monde trouve une réponse&nbsp;: le défi, c’est celle que personne ne dira. Moyen et Difficile visent les connaisseurs. Duel et Amis demandent Game Center, et tous les joueurs d’une partie utilisent la même version de l’app et la même langue de questions.</p>
+          <p class="note-small" lang="en">On Easy, everyone finds an answer: the challenge is the one nobody else will say. Medium and Hard are for connoisseurs. The daily leaderboards, Duel and Friends need Game Center, and everyone in a game plays the same app version in the same question language.</p>
+          <p class="note-small" lang="fr">En Facile, tout le monde trouve une réponse&nbsp;: le défi, c’est celle que personne ne dira. Moyen et Difficile visent les connaisseurs. Les classements du défi, Duel et Amis demandent Game Center, et tous les joueurs d’une partie utilisent la même version de l’app et la même langue de questions.</p>
         </div>
 
         <div class="feature-visual pair">
@@ -320,11 +368,11 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/home-en.webp">
-                  <img src="screens/home-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Rarqio home screen: Quick Game, Easy, Medium and Hard levels, Duel and Friends tiles, and theme tiles to play solo.">
+                  <img src="screens/home-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Rarqio home screen: Daily challenge, Play solo, the Duel and With friends tiles, and a “Did you know?” fact card.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/home-fr.webp">
-                  <img src="screens/home-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Écran d’accueil de Rarqio : Partie rapide, niveaux Facile, Moyen et Difficile, tuiles Duel et Amis, et thèmes à jouer en solo.">
+                  <img src="screens/home-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Écran d’accueil de Rarqio : Défi du jour, Jouer en solo, les tuiles Duel et Entre amis, et une carte « Le savais-tu ? ».">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
@@ -336,11 +384,11 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/code-en.webp">
-                  <img src="screens/code-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="A private room code, SB5 5XS, with a Send the code button, while waiting for the other players.">
+                  <img src="screens/code-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="A private room code, SKL 5XJ, with the Send the link and Copy the link buttons, while waiting for the other players.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/code-fr.webp">
-                  <img src="screens/code-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Un code de salon privé, XPS 5WB, avec le bouton Envoyer le code, en attendant les autres joueurs.">
+                  <img src="screens/code-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Un code de salon privé, RHL 5WL, avec les boutons Envoyer le lien et Copier le lien, en attendant les autres joueurs.">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
@@ -356,9 +404,9 @@
       <div class="wrap feature-grid reverse">
         <div class="feature-copy">
           <p class="eyebrow"><span lang="en">After the game</span><span lang="fr">Après la partie</span></p>
-          <h2 id="after-title"><span lang="en">Every round, laid out.</span><span lang="fr">Chaque manche, en détail.</span></h2>
-          <p lang="en">Results first: the scores race to the final ranking. Then <em>The rounds</em> goes back over each question: everyone’s answer with its rarity and points, the other accepted answers, a short fact and its sources.</p>
-          <p lang="fr">D’abord les résultats&nbsp;: les scores font la course jusqu’au classement final. Puis <em>Les manches</em> reprend chaque question&nbsp;: la réponse de chacun avec sa rareté et ses points, les autres réponses acceptées, une courte explication et ses sources.</p>
+          <h2 id="after-title"><span lang="en">Every question, laid out.</span><span lang="fr">Chaque question, en détail.</span></h2>
+          <p lang="en">Results first: the final ranking, with a rematch one tap away. Then <em>Review the questions</em> goes back over each one: everyone’s answer with its rarity and points, the other accepted answers, a short fact and its sources.</p>
+          <p lang="fr">D’abord les résultats&nbsp;: le classement final, et la revanche à portée de pouce. Puis <em>Revoir les questions</em> reprend chacune&nbsp;: la réponse de chacun avec sa rareté et ses points, les autres réponses acceptées, une courte explication et ses sources.</p>
           <p lang="en">It’s where you find out that Roxane was worth less than Ragueneau.</p>
           <p lang="fr">C’est là qu’on découvre que Roxane rapportait moins que Ragueneau.</p>
         </div>
@@ -369,11 +417,11 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/results-en.webp">
-                  <img src="screens/results-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Results: “Chloé wins!” with the final ranking, a Rematch button and Review the rounds.">
+                  <img src="screens/results-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Results: “You win!” with the final ranking of the four players, a Rematch button and Review the questions.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/results-fr.webp">
-                  <img src="screens/results-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Résultats : « Chloé gagne ! » avec le classement final, le bouton Revanche et Revoir les manches.">
+                  <img src="screens/results-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Résultats : « Tu gagnes ! » avec le classement final des quatre joueurs, le bouton Revanche et Revoir les questions.">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
@@ -385,16 +433,16 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/debrief-en.webp">
-                  <img src="screens/debrief-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="The rounds: round 1 with each player’s answer, its rarity and time, a short fact about the play and the other accepted answers.">
+                  <img src="screens/debrief-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="The questions: question 1 with each player’s answer, its rarity and time, a short explanation, the other accepted answers and the sources.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/debrief-fr.webp">
-                  <img src="screens/debrief-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Les manches : la manche 1 avec la réponse de chaque joueur, sa rareté et son temps, une courte explication et les autres réponses acceptées.">
+                  <img src="screens/debrief-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Les questions : la question 1 avec la réponse de chaque joueur, sa rareté et son temps, une courte explication, les autres réponses acceptées et les sources.">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
             </div>
-            <figcaption><span lang="en">The rounds</span><span lang="fr">Les manches</span></figcaption>
+            <figcaption><span lang="en">The questions, reviewed</span><span lang="fr">Les questions, revues</span></figcaption>
           </figure>
         </div>
       </div>
@@ -405,7 +453,7 @@
       <div class="wrap split">
         <header class="section-head">
           <p class="eyebrow"><span lang="en">The questions</span><span lang="fr">Les questions</span></p>
-          <h2 id="questions-title"><span lang="en">4,577 questions in each language.</span><span lang="fr">4&#8239;577 questions dans chaque langue.</span></h2>
+          <h2 id="questions-title"><span lang="en">5,004 questions in each language.</span><span lang="fr">5&#8239;004 questions dans chaque langue.</span></h2>
           <p class="section-lede" lang="en">The French and English banks hold the same questions, translated. They don’t add up to more.</p>
           <p class="section-lede" lang="fr">Les banques française et anglaise contiennent les mêmes questions, traduites. Elles ne s’additionnent pas.</p>
         </header>
@@ -440,8 +488,8 @@
           </ul>
 
           <ul class="honest">
-            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 770 questions; Comics has 86.</li>
-            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 770 questions, la BD 86.</li>
+            <li lang="en"><strong>Some themes run deeper than others.</strong> Movies has 788 questions; Comics has 104.</li>
+            <li lang="fr"><strong>Certains thèmes sont plus fournis que d’autres.</strong> Le cinéma compte 788 questions, la BD 104.</li>
             <li lang="en"><strong>Not exhaustive.</strong> The lists come from public references and are still under editorial review. A word that isn’t listed is “not listed”, not necessarily wrong, and you can report it.</li>
             <li lang="fr"><strong>Pas exhaustif.</strong> Les listes viennent de références publiques et restent en revue éditoriale. Un mot absent est «&nbsp;non référencé&nbsp;», pas forcément faux, et vous pouvez le signaler.</li>
             <li lang="en"><strong>Some lists are snapshots.</strong> They say so in the question: film data covers releases before 2011, for instance, and F1 standings run through 2024.</li>
@@ -459,8 +507,8 @@
         <div class="feature-copy">
           <p class="eyebrow"><span lang="en">Your profile</span><span lang="fr">Votre profil</span></p>
           <h2 id="profile-title"><span lang="en">Your best find, kept on your device.</span><span lang="fr">Votre plus belle trouvaille, gardée sur votre appareil.</span></h2>
-          <p lang="en">The profile keeps your rarest answer, the gems you’ve found, your share of answers found, online wins, your streak of days, your strongest theme and the questions you’ve discovered. None of it leaves your iPhone or iPad.</p>
-          <p lang="fr">Le profil garde votre réponse la plus rare, les pépites trouvées, votre taux de réponses trouvées, vos victoires en ligne, votre série de jours, votre thème fort et les questions découvertes. Rien de tout cela ne quitte votre iPhone ou votre iPad.</p>
+          <p lang="en">The profile keeps your rarest answer, your games played, your wins, the gems you’ve found and your streak of days. None of it leaves your iPhone or iPad.</p>
+          <p lang="fr">Le profil garde votre réponse la plus rare, vos parties jouées, vos victoires, les pépites trouvées et votre série de jours. Rien de tout cela ne quitte votre iPhone ou votre iPad.</p>
         </div>
         <div class="feature-visual single">
           <figure class="device">
@@ -468,11 +516,11 @@
               <div class="screen">
                 <picture lang="en">
                   <source type="image/webp" srcset="screens/profile-en.webp">
-                  <img src="screens/profile-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Profile: best find “Czechoslovakia” (Very rare, +702), gems found, answers found, online wins, best streak and best theme.">
+                  <img src="screens/profile-en.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Profile: best find “Callisto” (Legendary, +922), 44 games played, 7 wins, 19 gems found, then the game language and Game Center.">
                 </picture>
                 <picture lang="fr">
                   <source type="image/webp" srcset="screens/profile-fr.webp">
-                  <img src="screens/profile-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Profil : plus belle trouvaille « Tchécoslovaquie » (Très rare, +702), pépites trouvées, réponses trouvées, victoires en ligne, meilleure série et thème fort.">
+                  <img src="screens/profile-fr.jpg" width="900" height="1957" loading="lazy" decoding="async" alt="Profil : plus belle trouvaille « Callisto » (Légendaire, +922), 44 parties jouées, 7 victoires, 19 pépites trouvées, puis la langue du jeu et Game Center.">
                 </picture>
                 <span class="island" aria-hidden="true"></span>
               </div>
@@ -566,8 +614,8 @@
           <details name="faq">
             <summary><span lang="en">When can I download it?</span><span lang="fr">Quand pourrai-je la télécharger&nbsp;?</span></summary>
             <div class="answer">
-              <p lang="en">Rarqio is still in development and not on the App Store yet. This page will link to it as soon as it is.</p>
-              <p lang="fr">Rarqio est encore en développement et n’est pas encore sur l’App Store. Cette page renverra vers elle dès qu’elle y sera.</p>
+              <p lang="en">Rarqio is not on the App Store yet: version 1.0 is with Apple for review. This page will link to it as soon as it is out.</p>
+              <p lang="fr">Rarqio n’est pas encore sur l’App Store&nbsp;: la version 1.0 est en cours de validation chez Apple. Cette page renverra vers elle dès sa sortie.</p>
             </div>
           </details>
         </div>
@@ -759,6 +807,7 @@
         <p class="muted"><span lang="en">Least obvious wins.</span><span lang="fr">Le moins évident gagne.</span></p>
       </div>
       <nav class="footer-links" aria-label="Footer" data-fr-aria-label="Pied de page">
+        <a href="#film">Film</a>
         <a href="#how"><span lang="en">How it plays</span><span lang="fr">Le principe</span></a>
         <a href="#faq">FAQ</a>
         <a href="#support"><span lang="en">Support</span><span lang="fr">Aide</span></a>
@@ -768,7 +817,7 @@
       </nav>
       <div class="footer-legal">
         <p><span lang="en">© 2026 Geoffrey Guerin. All rights reserved.</span><span lang="fr">© 2026 Geoffrey Guerin. Tous droits réservés.</span></p>
-        <p class="tiny"><span lang="en">Screenshots from the development build, with example players.</span><span lang="fr">Captures de la version en développement, avec des joueurs d’exemple.</span></p>
+        <p class="tiny"><span lang="en">Screenshots from version 1.0, with example players.</span><span lang="fr">Captures de la version 1.0, avec des joueurs d’exemple.</span></p>
         <p class="tiny"><span lang="en">Apple, iPhone, iPad, Game Center and App Store are trademarks of Apple Inc., registered in the U.S. and other countries and regions.</span><span lang="fr">Apple, iPhone, iPad, Game Center et App Store sont des marques d’Apple Inc., déposées aux États-Unis et dans d’autres pays et régions.</span></p>
       </div>
     </div>
